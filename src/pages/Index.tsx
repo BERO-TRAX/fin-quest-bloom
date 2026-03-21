@@ -498,7 +498,7 @@ export default function Index() {
         </section>
 
         {/* How it works */}
-        <section id="how-it-works" className="border-t border-border/50">
+        <section id="how-it-works">
           <div className="mx-auto max-w-6xl px-4 py-16">
             <SectionTitle
               eyebrow="Core Loop"
