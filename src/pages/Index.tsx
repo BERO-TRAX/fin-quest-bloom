@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import finquestLogo from '@/assets/finquest-logo.png'
 
 /* ── Scroll-reveal hook ── */
@@ -150,10 +151,11 @@ function FAQItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean
 /* ── Main Page ── */
 export default function Index() {
   const nav = useMemo(() => [
-    { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Modules', href: '#modules' },
-    { label: 'UX & Trust', href: '#trust' },
-    { label: 'FAQ', href: '#faq' },
+    { label: 'How It Works', href: '#how-it-works', isRoute: false },
+    { label: 'Modules', href: '#modules', isRoute: false },
+    { label: 'UX & Trust', href: '#trust', isRoute: false },
+    { label: 'FAQ', href: '#faq', isRoute: false },
+    { label: 'About Us', href: '/about', isRoute: true },
   ], [])
 
   const [introReady, setIntroReady] = useState(false)
@@ -230,16 +232,22 @@ export default function Index() {
           }}
           aria-label="Navigation"
         >
-          <a href="#" className="flex items-center gap-2 rounded-full px-3 py-1.5 nav-liquid-link" aria-label="FinQuest">
+          <Link to="/" className="flex items-center gap-2 rounded-full px-3 py-1.5 nav-liquid-link" aria-label="FinQuest">
             <img src={finquestLogo} alt="FinQuest" className="relative z-10 h-8 w-8 object-contain drop-shadow-[0_0_6px_hsl(var(--brand-green)/0.3)]" />
             <span className="relative z-10 text-sm font-semibold tracking-tight hidden sm:inline text-foreground">FinQuest</span>
-          </a>
+          </Link>
 
           <div className="hidden md:flex items-center">
             {nav.map((item) => (
-              <a key={item.href} href={item.href} className="nav-liquid-link">
-                <span className="relative z-10">{item.label}</span>
-              </a>
+              item.isRoute ? (
+                <Link key={item.href} to={item.href} className="nav-liquid-link">
+                  <span className="relative z-10">{item.label}</span>
+                </Link>
+              ) : (
+                <a key={item.href} href={item.href} className="nav-liquid-link">
+                  <span className="relative z-10">{item.label}</span>
+                </a>
+              )
             ))}
           </div>
 
@@ -263,14 +271,25 @@ export default function Index() {
             }}
           >
             {nav.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="block rounded-xl px-4 py-2.5 text-sm font-medium text-muted-foreground hover:bg-brand-green/10 hover:text-foreground transition-colors"
-                onClick={() => setMobileOpen(false)}
-              >
-                {item.label}
-              </a>
+              item.isRoute ? (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="block rounded-xl px-4 py-2.5 text-sm font-medium text-muted-foreground hover:bg-brand-green/10 hover:text-foreground transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="block rounded-xl px-4 py-2.5 text-sm font-medium text-muted-foreground hover:bg-brand-green/10 hover:text-foreground transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.label}
+                </a>
+              )
             ))}
           </div>
         )}
@@ -342,9 +361,9 @@ export default function Index() {
                 transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 700ms',
               }}
             >
-              <a href="#modules" className="inline-flex items-center justify-center rounded-2xl bg-brand-green px-6 py-3 text-sm font-semibold text-background shadow-[0_4px_24px_hsl(var(--brand-green)/0.3)] hover:bg-brand-green/90 active:scale-[0.97] transition-all duration-200">
-                Explore Demo Vision
-              </a>
+              <Link to="/about" className="inline-flex items-center justify-center rounded-2xl bg-brand-green px-6 py-3 text-sm font-semibold text-background shadow-[0_4px_24px_hsl(var(--brand-green)/0.3)] hover:bg-brand-green/90 active:scale-[0.97] transition-all duration-200">
+                Launch the App
+              </Link>
               <a href="#how-it-works" className="inline-flex items-center justify-center rounded-2xl border border-brand-green/30 bg-brand-green/5 px-6 py-3 text-sm font-semibold text-foreground/90 hover:bg-brand-green/10 transition-all duration-200 active:scale-[0.97]">
                 See How It Works
               </a>
@@ -672,6 +691,7 @@ export default function Index() {
               <a className="hover:text-brand-green transition-colors" href="#how-it-works">How It Works</a>
               <a className="hover:text-brand-green transition-colors" href="#modules">Modules</a>
               <a className="hover:text-brand-green transition-colors" href="#faq">FAQ</a>
+              <Link className="hover:text-brand-green transition-colors" to="/about">About Us</Link>
               <a className="hover:text-brand-green transition-colors" href="mailto:hello@finquest.app">Contact</a>
             </div>
           </div>
