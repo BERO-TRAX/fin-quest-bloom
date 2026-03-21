@@ -239,9 +239,15 @@ export default function Index() {
 
           <div className="hidden md:flex items-center">
             {nav.map((item) => (
-              <a key={item.href} href={item.href} className="nav-liquid-link">
-                <span className="relative z-10">{item.label}</span>
-              </a>
+              item.isRoute ? (
+                <Link key={item.href} to={item.href} className="nav-liquid-link">
+                  <span className="relative z-10">{item.label}</span>
+                </Link>
+              ) : (
+                <a key={item.href} href={item.href} className="nav-liquid-link">
+                  <span className="relative z-10">{item.label}</span>
+                </a>
+              )
             ))}
           </div>
 
