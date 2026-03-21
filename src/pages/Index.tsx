@@ -691,6 +691,7 @@ export default function Index() {
               <a className="hover:text-brand-green transition-colors" href="#how-it-works">How It Works</a>
               <a className="hover:text-brand-green transition-colors" href="#modules">Modules</a>
               <a className="hover:text-brand-green transition-colors" href="#faq">FAQ</a>
+              <Link className="hover:text-brand-green transition-colors" to="/about">About Us</Link>
               <a className="hover:text-brand-green transition-colors" href="mailto:hello@finquest.app">Contact</a>
             </div>
           </div>
