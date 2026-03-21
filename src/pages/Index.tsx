@@ -271,14 +271,25 @@ export default function Index() {
             }}
           >
             {nav.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="block rounded-xl px-4 py-2.5 text-sm font-medium text-muted-foreground hover:bg-brand-green/10 hover:text-foreground transition-colors"
-                onClick={() => setMobileOpen(false)}
-              >
-                {item.label}
-              </a>
+              item.isRoute ? (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="block rounded-xl px-4 py-2.5 text-sm font-medium text-muted-foreground hover:bg-brand-green/10 hover:text-foreground transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="block rounded-xl px-4 py-2.5 text-sm font-medium text-muted-foreground hover:bg-brand-green/10 hover:text-foreground transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.label}
+                </a>
+              )
             ))}
           </div>
         )}
