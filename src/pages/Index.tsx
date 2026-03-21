@@ -678,7 +678,7 @@ export default function Index() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border/50">
+      <footer>
         <div className="mx-auto max-w-6xl px-4 py-10">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
             <div>
