@@ -361,9 +361,9 @@ export default function Index() {
                 transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 700ms',
               }}
             >
-              <a href="#modules" className="inline-flex items-center justify-center rounded-2xl bg-brand-green px-6 py-3 text-sm font-semibold text-background shadow-[0_4px_24px_hsl(var(--brand-green)/0.3)] hover:bg-brand-green/90 active:scale-[0.97] transition-all duration-200">
-                Explore Demo Vision
-              </a>
+              <Link to="/about" className="inline-flex items-center justify-center rounded-2xl bg-brand-green px-6 py-3 text-sm font-semibold text-background shadow-[0_4px_24px_hsl(var(--brand-green)/0.3)] hover:bg-brand-green/90 active:scale-[0.97] transition-all duration-200">
+                Launch the App
+              </Link>
               <a href="#how-it-works" className="inline-flex items-center justify-center rounded-2xl border border-brand-green/30 bg-brand-green/5 px-6 py-3 text-sm font-semibold text-foreground/90 hover:bg-brand-green/10 transition-all duration-200 active:scale-[0.97]">
                 See How It Works
               </a>
