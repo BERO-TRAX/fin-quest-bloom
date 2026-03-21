@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import finquestLogo from '@/assets/finquest-logo.png'
 
 /* ── Scroll-reveal hook ── */
