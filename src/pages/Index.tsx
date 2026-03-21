@@ -232,10 +232,10 @@ export default function Index() {
           }}
           aria-label="Navigation"
         >
-          <a href="#" className="flex items-center gap-2 rounded-full px-3 py-1.5 nav-liquid-link" aria-label="FinQuest">
+          <Link to="/" className="flex items-center gap-2 rounded-full px-3 py-1.5 nav-liquid-link" aria-label="FinQuest">
             <img src={finquestLogo} alt="FinQuest" className="relative z-10 h-8 w-8 object-contain drop-shadow-[0_0_6px_hsl(var(--brand-green)/0.3)]" />
             <span className="relative z-10 text-sm font-semibold tracking-tight hidden sm:inline text-foreground">FinQuest</span>
-          </a>
+          </Link>
 
           <div className="hidden md:flex items-center">
             {nav.map((item) => (
