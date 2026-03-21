@@ -151,10 +151,11 @@ function FAQItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean
 /* ── Main Page ── */
 export default function Index() {
   const nav = useMemo(() => [
-    { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Modules', href: '#modules' },
-    { label: 'UX & Trust', href: '#trust' },
-    { label: 'FAQ', href: '#faq' },
+    { label: 'How It Works', href: '#how-it-works', isRoute: false },
+    { label: 'Modules', href: '#modules', isRoute: false },
+    { label: 'UX & Trust', href: '#trust', isRoute: false },
+    { label: 'FAQ', href: '#faq', isRoute: false },
+    { label: 'About Us', href: '/about', isRoute: true },
   ], [])
 
   const [introReady, setIntroReady] = useState(false)
