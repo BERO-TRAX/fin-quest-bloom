@@ -498,7 +498,7 @@ export default function Index() {
         </section>
 
         {/* How it works */}
-        <section id="how-it-works" className="border-t border-border/50">
+        <section id="how-it-works">
           <div className="mx-auto max-w-6xl px-4 py-16">
             <SectionTitle
               eyebrow="Core Loop"
@@ -553,7 +553,7 @@ export default function Index() {
         </section>
 
         {/* Trust */}
-        <section id="trust" className="border-t border-border/50">
+        <section id="trust">
           <div className="mx-auto max-w-6xl px-4 py-16">
             <SectionTitle
               eyebrow="UX & Trust"
@@ -633,7 +633,7 @@ export default function Index() {
         </section>
 
         {/* CTA */}
-        <section className="border-t border-border/50">
+        <section>
           <div className="mx-auto max-w-6xl px-4 py-16">
             <div className="grid items-center gap-10 lg:grid-cols-2">
               <Reveal>
@@ -678,7 +678,7 @@ export default function Index() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border/50">
+      <footer>
         <div className="mx-auto max-w-6xl px-4 py-10">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
             <div>
