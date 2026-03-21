@@ -633,7 +633,7 @@ export default function Index() {
         </section>
 
         {/* CTA */}
-        <section className="border-t border-border/50">
+        <section>
           <div className="mx-auto max-w-6xl px-4 py-16">
             <div className="grid items-center gap-10 lg:grid-cols-2">
               <Reveal>
