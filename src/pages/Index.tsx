@@ -553,7 +553,7 @@ export default function Index() {
         </section>
 
         {/* Trust */}
-        <section id="trust" className="border-t border-border/50">
+        <section id="trust">
           <div className="mx-auto max-w-6xl px-4 py-16">
             <SectionTitle
               eyebrow="UX & Trust"
