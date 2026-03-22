@@ -45,6 +45,23 @@ function Reveal({
   )
 }
 
+/* ── Floating Emoji ── */
+function FloatingEmoji({ emoji, className, style }: { emoji: string; className?: string; style?: React.CSSProperties }) {
+  return (
+    <div
+      className={`pointer-events-none absolute select-none text-3xl sm:text-4xl ${className ?? ''}`}
+      style={{
+        animation: 'pill-float 3s ease-in-out infinite alternate',
+        filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))',
+        ...style,
+      }}
+      aria-hidden="true"
+    >
+      {emoji}
+    </div>
+  )
+}
+
 /* ── Animated background orbs ── */
 function AnimatedOrbs() {
   return (
@@ -300,6 +317,15 @@ export default function Index() {
         <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
           <AnimatedOrbs />
 
+          {/* Floating emojis around hero */}
+          <FloatingEmoji emoji="🐙" className="left-[8%] top-[18%] opacity-70" style={{ animationDelay: '0s', animationDuration: '4s' }} />
+          <FloatingEmoji emoji="📚" className="right-[10%] top-[22%] opacity-60" style={{ animationDelay: '0.5s', animationDuration: '3.5s' }} />
+          <FloatingEmoji emoji="💰" className="left-[12%] bottom-[25%] opacity-50" style={{ animationDelay: '1s', animationDuration: '4.5s' }} />
+          <FloatingEmoji emoji="🎮" className="right-[8%] bottom-[30%] opacity-60" style={{ animationDelay: '1.5s', animationDuration: '3.8s' }} />
+          <FloatingEmoji emoji="🧠" className="left-[22%] top-[65%] opacity-40 text-2xl sm:text-3xl" style={{ animationDelay: '0.8s', animationDuration: '5s' }} />
+          <FloatingEmoji emoji="🏆" className="right-[18%] top-[60%] opacity-50 text-2xl sm:text-3xl" style={{ animationDelay: '2s', animationDuration: '4.2s' }} />
+          <FloatingEmoji emoji="📊" className="left-[5%] top-[45%] opacity-30 text-2xl" style={{ animationDelay: '1.2s', animationDuration: '5.5s' }} />
+          <FloatingEmoji emoji="🚀" className="right-[5%] top-[42%] opacity-40 text-2xl" style={{ animationDelay: '0.3s', animationDuration: '3.2s' }} />
           {/* Radial glow behind hero */}
           <div
             className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.06]"
@@ -484,7 +510,9 @@ export default function Index() {
         </section>
 
         {/* Features */}
-        <section className="mx-auto max-w-6xl px-4 pb-16 pt-4 sm:pb-20">
+        <section className="relative mx-auto max-w-6xl px-4 pb-16 pt-4 sm:pb-20 overflow-hidden">
+          <FloatingEmoji emoji="🐙" className="right-[2%] top-[5%] opacity-30 text-5xl" style={{ animationDelay: '0.5s', animationDuration: '5s' }} />
+          <FloatingEmoji emoji="📖" className="left-[2%] bottom-[10%] opacity-25 text-4xl" style={{ animationDelay: '1.5s', animationDuration: '4s' }} />
           <SectionTitle
             eyebrow="FinQuest in 60 Seconds"
             title="A learning system that builds habits"
@@ -498,7 +526,9 @@ export default function Index() {
         </section>
 
         {/* How it works */}
-        <section id="how-it-works">
+        <section id="how-it-works" className="relative overflow-hidden">
+          <FloatingEmoji emoji="⚡" className="right-[4%] top-[15%] opacity-25 text-4xl" style={{ animationDelay: '0.7s', animationDuration: '4.5s' }} />
+          <FloatingEmoji emoji="🎯" className="left-[3%] top-[40%] opacity-20 text-3xl" style={{ animationDelay: '2s', animationDuration: '5s' }} />
           <div className="mx-auto max-w-6xl px-4 py-16">
             <SectionTitle
               eyebrow="Core Loop"
@@ -524,7 +554,9 @@ export default function Index() {
         </section>
 
         {/* Modules */}
-        <section id="modules" className="mx-auto max-w-6xl px-4 pb-16 pt-10 sm:pb-20">
+        <section id="modules" className="relative mx-auto max-w-6xl px-4 pb-16 pt-10 sm:pb-20 overflow-hidden">
+          <FloatingEmoji emoji="🗺️" className="right-[3%] top-[8%] opacity-25 text-4xl" style={{ animationDelay: '1s', animationDuration: '4.8s' }} />
+          <FloatingEmoji emoji="💎" className="left-[2%] bottom-[5%] opacity-20 text-3xl" style={{ animationDelay: '0.4s', animationDuration: '3.6s' }} />
           <SectionTitle
             eyebrow="Academy Modules"
             title="Curriculum as a knowledge map"
