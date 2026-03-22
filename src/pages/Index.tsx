@@ -45,6 +45,23 @@ function Reveal({
   )
 }
 
+/* ── Floating Emoji ── */
+function FloatingEmoji({ emoji, className, style }: { emoji: string; className?: string; style?: React.CSSProperties }) {
+  return (
+    <div
+      className={`pointer-events-none absolute select-none text-3xl sm:text-4xl ${className ?? ''}`}
+      style={{
+        animation: 'pill-float 3s ease-in-out infinite alternate',
+        filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.3))',
+        ...style,
+      }}
+      aria-hidden="true"
+    >
+      {emoji}
+    </div>
+  )
+}
+
 /* ── Animated background orbs ── */
 function AnimatedOrbs() {
   return (
