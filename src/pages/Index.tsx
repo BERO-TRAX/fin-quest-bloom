@@ -510,7 +510,9 @@ export default function Index() {
         </section>
 
         {/* Features */}
-        <section className="mx-auto max-w-6xl px-4 pb-16 pt-4 sm:pb-20">
+        <section className="relative mx-auto max-w-6xl px-4 pb-16 pt-4 sm:pb-20 overflow-hidden">
+          <FloatingEmoji emoji="🐙" className="right-[2%] top-[5%] opacity-30 text-5xl" style={{ animationDelay: '0.5s', animationDuration: '5s' }} />
+          <FloatingEmoji emoji="📖" className="left-[2%] bottom-[10%] opacity-25 text-4xl" style={{ animationDelay: '1.5s', animationDuration: '4s' }} />
           <SectionTitle
             eyebrow="FinQuest in 60 Seconds"
             title="A learning system that builds habits"
