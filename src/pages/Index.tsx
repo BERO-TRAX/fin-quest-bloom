@@ -554,7 +554,9 @@ export default function Index() {
         </section>
 
         {/* Modules */}
-        <section id="modules" className="mx-auto max-w-6xl px-4 pb-16 pt-10 sm:pb-20">
+        <section id="modules" className="relative mx-auto max-w-6xl px-4 pb-16 pt-10 sm:pb-20 overflow-hidden">
+          <FloatingEmoji emoji="🗺️" className="right-[3%] top-[8%] opacity-25 text-4xl" style={{ animationDelay: '1s', animationDuration: '4.8s' }} />
+          <FloatingEmoji emoji="💎" className="left-[2%] bottom-[5%] opacity-20 text-3xl" style={{ animationDelay: '0.4s', animationDuration: '3.6s' }} />
           <SectionTitle
             eyebrow="Academy Modules"
             title="Curriculum as a knowledge map"
