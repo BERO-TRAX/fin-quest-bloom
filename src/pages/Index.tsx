@@ -526,8 +526,9 @@ export default function Index() {
         </section>
 
         {/* How it works */}
-        <section id="how-it-works">
-          <div className="mx-auto max-w-6xl px-4 py-16">
+        <section id="how-it-works" className="relative overflow-hidden">
+          <FloatingEmoji emoji="⚡" className="right-[4%] top-[15%] opacity-25 text-4xl" style={{ animationDelay: '0.7s', animationDuration: '4.5s' }} />
+          <FloatingEmoji emoji="🎯" className="left-[3%] top-[40%] opacity-20 text-3xl" style={{ animationDelay: '2s', animationDuration: '5s' }} />
             <SectionTitle
               eyebrow="Core Loop"
               title="How a mission unfolds"
