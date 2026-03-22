@@ -170,3 +170,19 @@
     z-index: 0;
   }
 }
+
+/* Floating pill animation */
+@keyframes pill-float {
+  0% { transform: translateY(0px) translateX(0px); }
+  100% { transform: translateY(-12px) translateX(4px); }
+}
+
+/* Marquee scrolling animation */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee-scroll 25s linear infinite;
+  width: max-content;
+}
