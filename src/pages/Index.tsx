@@ -317,6 +317,15 @@ export default function Index() {
         <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
           <AnimatedOrbs />
 
+          {/* Floating emojis around hero */}
+          <FloatingEmoji emoji="🐙" className="left-[8%] top-[18%] opacity-70" style={{ animationDelay: '0s', animationDuration: '4s' }} />
+          <FloatingEmoji emoji="📚" className="right-[10%] top-[22%] opacity-60" style={{ animationDelay: '0.5s', animationDuration: '3.5s' }} />
+          <FloatingEmoji emoji="💰" className="left-[12%] bottom-[25%] opacity-50" style={{ animationDelay: '1s', animationDuration: '4.5s' }} />
+          <FloatingEmoji emoji="🎮" className="right-[8%] bottom-[30%] opacity-60" style={{ animationDelay: '1.5s', animationDuration: '3.8s' }} />
+          <FloatingEmoji emoji="🧠" className="left-[22%] top-[65%] opacity-40 text-2xl sm:text-3xl" style={{ animationDelay: '0.8s', animationDuration: '5s' }} />
+          <FloatingEmoji emoji="🏆" className="right-[18%] top-[60%] opacity-50 text-2xl sm:text-3xl" style={{ animationDelay: '2s', animationDuration: '4.2s' }} />
+          <FloatingEmoji emoji="📊" className="left-[5%] top-[45%] opacity-30 text-2xl" style={{ animationDelay: '1.2s', animationDuration: '5.5s' }} />
+          <FloatingEmoji emoji="🚀" className="right-[5%] top-[42%] opacity-40 text-2xl" style={{ animationDelay: '0.3s', animationDuration: '3.2s' }} />
           {/* Radial glow behind hero */}
           <div
             className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.06]"
