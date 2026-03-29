@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import finquestLogo from '@/assets/finquest-logo.png'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { LanguageToggle } from '@/components/LanguageToggle'
 
 /* ── Scroll-reveal hook ── */
 function useReveal(threshold = 0.18) {
@@ -167,18 +169,20 @@ function FAQItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean
 
 /* ── Main Page ── */
 export default function Index() {
+  const { t } = useLanguage()
+
   const nav = useMemo(() => [
-    { label: 'How It Works', href: '#how-it-works', isRoute: false },
-    { label: 'Modules', href: '#modules', isRoute: false },
-    { label: 'UX & Trust', href: '#trust', isRoute: false },
-    { label: 'FAQ', href: '#faq', isRoute: false },
-    { label: 'About Us', href: '/about', isRoute: true },
-  ], [])
+    { label: t('nav.howItWorks'), href: '#how-it-works', isRoute: false },
+    { label: t('nav.modules'), href: '#modules', isRoute: false },
+    { label: t('nav.uxTrust'), href: '#trust', isRoute: false },
+    { label: t('nav.faq'), href: '#faq', isRoute: false },
+    { label: t('nav.aboutUs'), href: '/about', isRoute: true },
+  ], [t])
 
   const [introReady, setIntroReady] = useState(false)
   useEffect(() => {
-    const t = setTimeout(() => setIntroReady(true), 200)
-    return () => clearTimeout(t)
+    const ti = setTimeout(() => setIntroReady(true), 200)
+    return () => clearTimeout(ti)
   }, [])
 
   const [scrolled, setScrolled] = useState(false)
@@ -191,38 +195,38 @@ export default function Index() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const features = useMemo(() => [
-    { icon: <Icon name="brain" />, title: 'Psychology, Not Points', description: 'Gamification driven by self-determination: autonomy, competence, and relatedness — with feedback at the right moment.' },
-    { icon: <Icon name="spark" />, title: 'Instant Reward', description: 'Progress is visible immediately: visual cues for your actions and learning that kicks in when you need it.' },
-    { icon: <Icon name="map" />, title: 'Scaffolding Complexity', description: 'We break financial concepts into small, achievable goals that build toward "financial freedom."' },
-    { icon: <Icon name="users" />, title: 'Goal-Based Community', description: 'Guilds and cooperative missions that motivate without creating toxic comparison.' },
-    { icon: <Icon name="coin" />, title: 'Simulation With Purpose', description: 'We demonstrate the impact of decisions (like interest, debt, and cash flow) through interactive scenarios.' },
-    { icon: <Icon name="shield" />, title: 'Trust & Security', description: 'Designed with transparency: clear messaging, accessibility, and UX that respects the seriousness of finance.' },
-  ], [])
+    { icon: <Icon name="brain" />, title: t('features.f1.title'), description: t('features.f1.desc') },
+    { icon: <Icon name="spark" />, title: t('features.f2.title'), description: t('features.f2.desc') },
+    { icon: <Icon name="map" />, title: t('features.f3.title'), description: t('features.f3.desc') },
+    { icon: <Icon name="users" />, title: t('features.f4.title'), description: t('features.f4.desc') },
+    { icon: <Icon name="coin" />, title: t('features.f5.title'), description: t('features.f5.desc') },
+    { icon: <Icon name="shield" />, title: t('features.f6.title'), description: t('features.f6.desc') },
+  ], [t])
 
   const steps = useMemo(() => [
-    { title: 'Onboarding & Digital Twin', description: 'A short assessment determines your starting level and adjusts simulation difficulty.' },
-    { title: 'Command Center', description: 'Daily quests + a Health Bar tracking progress toward your financial well-being.' },
-    { title: 'Simulation Arena', description: 'Virtual time, drag-and-drop budgeting, and life decisions with realistic consequences.' },
-    { title: 'Academy: Just-in-Time', description: 'When the game challenges you, it instantly shows a lesson that solves the specific problem.' },
-    { title: 'Social Hub', description: 'Guilds that train habits together — with challenges oriented toward sustainable progress.' },
-  ], [])
+    { title: t('hiw.s1.title'), description: t('hiw.s1.desc') },
+    { title: t('hiw.s2.title'), description: t('hiw.s2.desc') },
+    { title: t('hiw.s3.title'), description: t('hiw.s3.desc') },
+    { title: t('hiw.s4.title'), description: t('hiw.s4.desc') },
+    { title: t('hiw.s5.title'), description: t('hiw.s5.desc') },
+  ], [t])
 
   const modules = useMemo(() => [
-    { key: 'survival', title: '1. Survival Basics', mechanic: '30-Day Detox', desc: 'Income/expenses, needs vs. wants, and emergency fund.' },
-    { key: 'debt', title: '2. Debt Slayer', mechanic: 'Avalanche vs. Snowball', desc: 'Types of debt, interest rates, and exit strategies.' },
-    { key: 'budget', title: '3. Budgeting & Planning', mechanic: 'Build Your Budget', desc: '50/30/20 rule, cash flow forecasting, and scenarios.' },
-    { key: 'invest', title: '4. Investing 101', mechanic: 'Training Portfolio', desc: 'Risk, return, and compound interest without real market risk.' },
-    { key: 'guard', title: '5. Protection & Security', mechanic: 'Scenario Quests', desc: 'Scam detection, insurance, and cyber hygiene.' },
-    { key: 'wealth', title: '6. Financial Freedom', mechanic: 'Fast Track Mode', desc: 'Passive income, FIRE, tax planning, and real estate.' },
-  ], [])
+    { key: 'survival', title: t('mod.m1.title'), mechanic: t('mod.m1.mechanic'), desc: t('mod.m1.desc') },
+    { key: 'debt', title: t('mod.m2.title'), mechanic: t('mod.m2.mechanic'), desc: t('mod.m2.desc') },
+    { key: 'budget', title: t('mod.m3.title'), mechanic: t('mod.m3.mechanic'), desc: t('mod.m3.desc') },
+    { key: 'invest', title: t('mod.m4.title'), mechanic: t('mod.m4.mechanic'), desc: t('mod.m4.desc') },
+    { key: 'guard', title: t('mod.m5.title'), mechanic: t('mod.m5.mechanic'), desc: t('mod.m5.desc') },
+    { key: 'wealth', title: t('mod.m6.title'), mechanic: t('mod.m6.mechanic'), desc: t('mod.m6.desc') },
+  ], [t])
 
   const faq = useMemo(() => [
-    { q: 'Are points and leaderboards the core?', a: 'No. Points are just visual indicators of progress. The core is motivation (autonomy/competence/relatedness) and learning that guides you to make better decisions.' },
-    { q: 'Is this a gambling game?', a: 'The simulations are educational: outcomes follow the logic of your decisions (risk/return/resources), not RNG that punishes or randomly rewards.' },
-    { q: 'How much time do I need?', a: 'Designed for micro-lessons and sessions of about 5–10 minutes. Every session ends with concrete progress and a clear next step.' },
-    { q: 'Is it accessible and respectful?', a: 'Yes. Trust means clear messaging, accessible interfaces, and UX without dark patterns. We aim for a serious yet engaging design.' },
-    { q: 'What do I actually get after training?', a: 'Not just knowledge, but habits: better budgeting, sustainable decisions, and progress toward financial goals — measurable through a Financial Wellness Score.' },
-  ], [])
+    { q: t('faq.q1'), a: t('faq.a1') },
+    { q: t('faq.q2'), a: t('faq.a2') },
+    { q: t('faq.q3'), a: t('faq.a3') },
+    { q: t('faq.q4'), a: t('faq.a4') },
+    { q: t('faq.q5'), a: t('faq.a5') },
+  ], [t])
 
   const [openFaqIndex, setOpenFaqIndex] = useState<number>(0)
 
@@ -267,6 +271,8 @@ export default function Index() {
               )
             ))}
           </div>
+
+          <LanguageToggle />
 
           <button
             type="button"
@@ -361,8 +367,8 @@ export default function Index() {
                 transition: 'all 0.9s cubic-bezier(0.16, 1, 0.3, 1) 200ms',
               }}
             >
-              Financial literacy<br />
-              <span className="text-brand-green">as an epic quest.</span>
+              {t('hero.title1')}<br />
+              <span className="text-brand-green">{t('hero.title2')}</span>
             </h1>
 
             {/* Subtitle */}
@@ -375,7 +381,7 @@ export default function Index() {
                 transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 500ms',
               }}
             >
-              Learn. Play. Build lasting financial habits.
+              {t('hero.subtitle')}
             </p>
 
             {/* CTA */}
@@ -388,10 +394,10 @@ export default function Index() {
               }}
             >
               <a href="https://app-design-update-oc-7yhz.bolt.host/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-2xl bg-brand-green px-6 py-3 text-sm font-semibold text-background shadow-[0_4px_24px_hsl(var(--brand-green)/0.3)] hover:bg-brand-green/90 active:scale-[0.97] transition-all duration-200">
-                Launch the App
+                {t('hero.cta')}
               </a>
               <a href="#how-it-works" className="inline-flex items-center justify-center rounded-2xl border border-brand-green/30 bg-brand-green/5 px-6 py-3 text-sm font-semibold text-foreground/90 hover:bg-brand-green/10 transition-all duration-200 active:scale-[0.97]">
-                See How It Works
+                {t('hero.howItWorks')}
               </a>
             </div>
 
@@ -407,7 +413,7 @@ export default function Index() {
             {/* Scroll hint */}
             <div className="mt-12" style={{ opacity: introReady ? 1 : 0, transition: 'opacity 1s ease 1.2s' }}>
               <a href="#about" className="inline-flex flex-col items-center gap-2 text-muted-foreground/60 hover:text-brand-green/80 transition-colors">
-                <span className="text-xs tracking-widest uppercase">Scroll</span>
+                <span className="text-xs tracking-widest uppercase">{t('hero.scroll')}</span>
                 <svg width="16" height="24" viewBox="0 0 16 24" fill="none" className="opacity-60" style={{ animation: 'scroll-hint 2s ease-in-out infinite' }}>
                   <path d="M8 4v12m0 0l-4-4m4 4l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -425,28 +431,27 @@ export default function Index() {
                 <Reveal delay={0}>
                   <div className="inline-flex items-center gap-2 rounded-full border border-brand-green/20 bg-brand-green/5 px-4 py-2 text-xs font-semibold text-brand-green">
                     <span className="inline-block h-2 w-2 rounded-full bg-brand-green animate-pulse" />
-                    Strategic analysis of gamification for financial education
+                    {t('about.badge')}
                   </div>
                 </Reveal>
 
                 <Reveal delay={100}>
                   <h2 className="mt-5 text-balance text-3xl font-semibold tracking-tight sm:text-4xl" style={{ lineHeight: '1.1' }}>
-                    Where RPG simulation meets <span className="text-brand-green">real-world finance.</span>
+                    {t('about.title1')}<span className="text-brand-green">{t('about.title2')}</span>
                   </h2>
                 </Reveal>
 
                 <Reveal delay={200}>
                   <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-                    FinQuest combines RPG simulation (inspired by Cashflow) with psychology-driven gamification:
-                    autonomy, competence, and relatedness. The goal isn't "a game for points" — it's lasting financial habits.
+                    {t('about.desc')}
                   </p>
                 </Reveal>
 
                 <Reveal delay={400}>
                   <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                    <StatPill value="5–10 min" label="micro-lesson sessions" />
-                    <StatPill value="Just-in-Time" label="learning on demand" />
-                    <StatPill value="No RNG" label="logic-based scenarios" />
+                    <StatPill value="5–10 min" label={t('about.stat1')} />
+                    <StatPill value="Just-in-Time" label={t('about.stat2')} />
+                    <StatPill value="No RNG" label={t('about.stat3')} />
                   </div>
                 </Reveal>
               </div>
@@ -457,11 +462,11 @@ export default function Index() {
                   <div className="rounded-3xl border border-border bg-secondary/40 p-5 shadow-soft backdrop-blur-sm">
                     <div className="flex items-center justify-between gap-4">
                       <div>
-                        <div className="text-xs font-semibold text-muted-foreground">Command Center</div>
-                        <div className="mt-1 text-lg font-semibold">North Star: "Buy a Home"</div>
+                        <div className="text-xs font-semibold text-muted-foreground">{t('about.commandCenter')}</div>
+                        <div className="mt-1 text-lg font-semibold">{t('about.northStar')}</div>
                       </div>
                       <div className="rounded-2xl bg-brand-green/10 px-3 py-2 text-xs font-semibold text-brand-green ring-1 ring-brand-green/20">
-                        Financial Readiness: 72%
+                        {t('about.readiness')}
                       </div>
                     </div>
 
@@ -469,11 +474,11 @@ export default function Index() {
                       <div className="rounded-2xl border border-border bg-background/30 p-4">
                         <div className="flex items-center justify-between gap-3">
                           <div>
-                            <div className="text-sm font-semibold">Daily Quest #1</div>
-                            <div className="text-xs text-muted-foreground">Identify the interest in "compound interest"</div>
+                            <div className="text-sm font-semibold">{t('about.dailyQuest')}</div>
+                            <div className="text-xs text-muted-foreground">{t('about.dailyQuestDesc')}</div>
                           </div>
                           <div className="rounded-xl bg-brand-green/15 px-3 py-2 text-xs font-semibold text-brand-green ring-1 ring-brand-green/20">
-                            Done
+                            {t('about.done')}
                           </div>
                         </div>
                         <div className="mt-3 h-2 w-full rounded-full bg-secondary overflow-hidden">
@@ -483,23 +488,22 @@ export default function Index() {
 
                       <div className="grid gap-3 sm:grid-cols-2">
                         <div className="rounded-2xl border border-border bg-background/30 p-4">
-                          <div className="text-xs font-semibold text-muted-foreground">Next Mission</div>
-                          <div className="mt-1 text-sm font-semibold">Choose "Avalanche"</div>
-                          <div className="mt-2 text-xs text-muted-foreground">for faster debt clearance</div>
+                          <div className="text-xs font-semibold text-muted-foreground">{t('about.nextMission')}</div>
+                          <div className="mt-1 text-sm font-semibold">{t('about.chooseAvalanche')}</div>
+                          <div className="mt-2 text-xs text-muted-foreground">{t('about.fasterDebt')}</div>
                         </div>
                         <div className="rounded-2xl border border-border bg-background/30 p-4">
-                          <div className="text-xs font-semibold text-muted-foreground">Tip</div>
-                          <div className="mt-1 text-sm font-semibold">Just-in-Time Lesson</div>
-                          <div className="mt-2 text-xs text-muted-foreground">where risk matters most</div>
+                          <div className="text-xs font-semibold text-muted-foreground">{t('about.tip')}</div>
+                          <div className="mt-1 text-sm font-semibold">{t('about.jitLesson')}</div>
+                          <div className="mt-2 text-xs text-muted-foreground">{t('about.riskMatters')}</div>
                         </div>
                       </div>
                     </div>
 
                     <div className="mt-5 rounded-2xl bg-brand-green/5 p-4 ring-1 ring-brand-green/10">
-                      <div className="text-xs font-semibold text-muted-foreground">Why This Works</div>
+                      <div className="text-xs font-semibold text-muted-foreground">{t('about.whyWorks')}</div>
                       <div className="mt-1 text-sm text-foreground/80">
-                        When progress is visible instantly, competence grows, autonomy remains your choice, and
-                        the community keeps you motivated.
+                        {t('about.whyWorksDesc')}
                       </div>
                     </div>
                   </div>
@@ -514,9 +518,9 @@ export default function Index() {
           <FloatingEmoji emoji="🐙" className="right-[2%] top-[5%] opacity-30 text-5xl" style={{ animationDelay: '0.5s', animationDuration: '5s' }} />
           <FloatingEmoji emoji="📖" className="left-[2%] bottom-[10%] opacity-25 text-4xl" style={{ animationDelay: '1.5s', animationDuration: '4s' }} />
           <SectionTitle
-            eyebrow="FinQuest in 60 Seconds"
-            title="A learning system that builds habits"
-            description={'Not just "read and memorize" — practice decisions in a simulation, see the consequences, and get a lesson in the moment.'}
+            eyebrow={t('features.eyebrow')}
+            title={t('features.title')}
+            description={t('features.desc')}
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((f, i) => (
@@ -531,9 +535,9 @@ export default function Index() {
           <FloatingEmoji emoji="🎯" className="left-[3%] top-[40%] opacity-20 text-3xl" style={{ animationDelay: '2s', animationDuration: '5s' }} />
           <div className="mx-auto max-w-6xl px-4 py-16">
             <SectionTitle
-              eyebrow="Core Loop"
-              title="How a mission unfolds"
-              description="Example flow: from onboarding to simulation, academy, and social support."
+              eyebrow={t('hiw.eyebrow')}
+              title={t('hiw.title')}
+              description={t('hiw.desc')}
             />
             <div className="mt-10 grid gap-4 lg:grid-cols-5">
               {steps.map((s, idx) => (
@@ -558,9 +562,9 @@ export default function Index() {
           <FloatingEmoji emoji="🗺️" className="right-[3%] top-[8%] opacity-25 text-4xl" style={{ animationDelay: '1s', animationDuration: '4.8s' }} />
           <FloatingEmoji emoji="💎" className="left-[2%] bottom-[5%] opacity-20 text-3xl" style={{ animationDelay: '0.4s', animationDuration: '3.6s' }} />
           <SectionTitle
-            eyebrow="Academy Modules"
-            title="Curriculum as a knowledge map"
-            description={'Six "worlds" from basics to financial freedom. Each module is tied to a specific simulation mechanic.'}
+            eyebrow={t('mod.eyebrow')}
+            title={t('mod.title')}
+            description={t('mod.desc')}
           />
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {modules.map((m, i) => (
@@ -570,7 +574,7 @@ export default function Index() {
                     <div>
                       <div className="text-sm font-semibold text-foreground/90">{m.title}</div>
                       <div className="mt-2 text-xs font-semibold text-brand-green ring-1 ring-brand-green/20 bg-brand-green/10 inline-flex rounded-full px-3 py-1">
-                        Mechanic: {m.mechanic}
+                        {t('mod.mechanic')}: {m.mechanic}
                       </div>
                     </div>
                     <div className="h-10 w-10 rounded-2xl bg-brand-green/10 ring-1 ring-brand-green/20 flex items-center justify-center text-brand-green font-bold text-xs">
@@ -588,25 +592,25 @@ export default function Index() {
         <section id="trust">
           <div className="mx-auto max-w-6xl px-4 py-16">
             <SectionTitle
-              eyebrow="UX & Trust"
-              title="Playing seriously"
-              description="Financial topics demand transparency and respect. That's why the gamification is subtle: it encourages without manipulating."
+              eyebrow={t('trust.eyebrow')}
+              title={t('trust.title')}
+              description={t('trust.desc')}
             />
             <div className="mt-10 grid gap-4 lg:grid-cols-2">
               <Reveal delay={0}>
                 <div className="h-full rounded-3xl border border-border bg-secondary/40 p-6 shadow-soft backdrop-blur-sm">
-                  <h3 className="text-lg font-semibold tracking-tight">Trust Architecture</h3>
+                  <h3 className="text-lg font-semibold tracking-tight">{t('trust.archTitle')}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    Instead of dark patterns, FinQuest uses clear messaging, unobtrusive security indicators, and progressive disclosure of details.
+                    {t('trust.archDesc')}
                   </p>
                   <div className="mt-5 space-y-3">
                     <div className="rounded-2xl border border-border bg-background/30 p-4">
-                      <div className="text-sm font-semibold">Progressive Disclosure</div>
-                      <div className="mt-1 text-sm text-muted-foreground">Dashboard overview + details in 1–2 clicks.</div>
+                      <div className="text-sm font-semibold">{t('trust.progressive')}</div>
+                      <div className="mt-1 text-sm text-muted-foreground">{t('trust.progressiveDesc')}</div>
                     </div>
                     <div className="rounded-2xl border border-border bg-background/30 p-4">
-                      <div className="text-sm font-semibold">Accessibility</div>
-                      <div className="mt-1 text-sm text-muted-foreground">Sufficient contrast, clear focus states, and comfortable navigation.</div>
+                      <div className="text-sm font-semibold">{t('trust.accessibility')}</div>
+                      <div className="mt-1 text-sm text-muted-foreground">{t('trust.accessibilityDesc')}</div>
                     </div>
                   </div>
                 </div>
@@ -614,27 +618,27 @@ export default function Index() {
 
               <Reveal delay={100}>
                 <div className="h-full rounded-3xl border border-border bg-secondary/40 p-6 shadow-soft backdrop-blur-sm">
-                  <h3 className="text-lg font-semibold tracking-tight">Ethical Gamification</h3>
+                  <h3 className="text-lg font-semibold tracking-tight">{t('trust.ethicalTitle')}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    Confetti and visual rewards are the "frame" for progress, but behavior is directed toward sustainable decisions.
+                    {t('trust.ethicalDesc')}
                   </p>
                   <div className="mt-5 grid gap-3 sm:grid-cols-2">
                     <div className="rounded-2xl border border-border bg-background/30 p-4">
-                      <div className="text-xs font-semibold text-muted-foreground">Reward</div>
-                      <div className="mt-1 text-sm font-semibold text-brand-green">for the right move</div>
+                      <div className="text-xs font-semibold text-muted-foreground">{t('trust.reward')}</div>
+                      <div className="mt-1 text-sm font-semibold text-brand-green">{t('trust.rightMove')}</div>
                     </div>
                     <div className="rounded-2xl border border-border bg-background/30 p-4">
-                      <div className="text-xs font-semibold text-muted-foreground">Lesson</div>
-                      <div className="mt-1 text-sm font-semibold text-brand-green">at the right moment</div>
+                      <div className="text-xs font-semibold text-muted-foreground">{t('trust.lesson')}</div>
+                      <div className="mt-1 text-sm font-semibold text-brand-green">{t('trust.rightMoment')}</div>
                     </div>
                   </div>
                   <div className="mt-5 rounded-2xl bg-brand-green/5 p-4 ring-1 ring-brand-green/10">
-                    <div className="text-xs font-semibold text-muted-foreground">Call to Action</div>
+                    <div className="text-xs font-semibold text-muted-foreground">{t('trust.ctaTitle')}</div>
                     <div className="mt-1 text-sm text-foreground/80">
-                      Want to see a prototype? Click "Explore Demo Vision" and browse the modules below.
+                      {t('trust.ctaDesc')}
                     </div>
                     <a href="#modules" className="mt-3 inline-flex items-center justify-center rounded-2xl bg-brand-green/10 px-4 py-2 text-sm font-semibold text-brand-green hover:bg-brand-green/20 active:scale-[0.97] transition-all">
-                      Go to Modules
+                      {t('trust.goToModules')}
                     </a>
                   </div>
                 </div>
@@ -646,9 +650,9 @@ export default function Index() {
         {/* FAQ */}
         <section id="faq" className="mx-auto max-w-6xl px-4 pb-16 pt-10 sm:pb-20">
           <SectionTitle
-            eyebrow="FAQ"
-            title="Frequently Asked Questions"
-            description="Quick answers about the approach, simulations, and what you gain after training."
+            eyebrow={t('faq.eyebrow')}
+            title={t('faq.title')}
+            description={t('faq.desc')}
           />
           <div className="mt-10 grid gap-4 lg:grid-cols-2">
             {faq.map((item, idx) => (
@@ -670,12 +674,12 @@ export default function Index() {
             <div className="grid items-center gap-10 lg:grid-cols-2">
               <Reveal>
                 <div>
-                  <div className="text-xs font-semibold text-brand-green">FinQuest • Early Vision</div>
+                  <div className="text-xs font-semibold text-brand-green">{t('cta.eyebrow')}</div>
                   <h2 className="mt-2 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-                    Be the first to see the quest in action.
+                    {t('cta.title')}
                   </h2>
                   <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                    Leave your email to get prototype access and updates. (This form is a demo.)
+                    {t('cta.desc')}
                   </p>
                 </div>
               </Reveal>
@@ -683,23 +687,23 @@ export default function Index() {
               <Reveal delay={100}>
                 <div className="rounded-3xl border border-border bg-secondary/40 p-6 shadow-soft backdrop-blur-sm">
                   <form
-                    onSubmit={(e) => { e.preventDefault(); alert('Thank you! This is a demo form for the landing page.') }}
+                    onSubmit={(e) => { e.preventDefault(); alert(t('cta.thanks')) }}
                     className="space-y-3"
                   >
                     <label className="block text-sm font-semibold text-foreground/90">
-                      Email
+                      {t('cta.email')}
                       <input
                         required
                         type="email"
-                        placeholder="name@example.com"
+                        placeholder={t('cta.placeholder')}
                         className="mt-2 w-full rounded-2xl border border-border bg-background/30 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none focus:border-brand-green transition-colors"
                       />
                     </label>
                     <button type="submit" className="w-full rounded-2xl bg-brand-green px-5 py-3 text-sm font-semibold text-background hover:bg-brand-green/90 active:scale-[0.97] transition-all duration-200">
-                      Sign Me Up for Prototype
+                      {t('cta.submit')}
                     </button>
                     <div className="text-xs text-muted-foreground">
-                      By clicking "Sign Me Up," you acknowledge this is a demonstration landing page.
+                      {t('cta.disclaimer')}
                     </div>
                   </form>
                 </div>
@@ -716,19 +720,19 @@ export default function Index() {
             <div>
               <LogoMark />
               <div className="mt-3 text-sm text-muted-foreground">
-                Financial literacy turned into practice through RPG-inspired gamification.
+                {t('footer.desc')}
               </div>
             </div>
             <div className="grid gap-2 text-sm text-muted-foreground">
-              <a className="hover:text-brand-green transition-colors" href="#how-it-works">How It Works</a>
-              <a className="hover:text-brand-green transition-colors" href="#modules">Modules</a>
-              <a className="hover:text-brand-green transition-colors" href="#faq">FAQ</a>
-              <Link className="hover:text-brand-green transition-colors" to="/about">About Us</Link>
-              <a className="hover:text-brand-green transition-colors" href="mailto:hello@finquest.app">Contact</a>
+              <a className="hover:text-brand-green transition-colors" href="#how-it-works">{t('nav.howItWorks')}</a>
+              <a className="hover:text-brand-green transition-colors" href="#modules">{t('nav.modules')}</a>
+              <a className="hover:text-brand-green transition-colors" href="#faq">{t('nav.faq')}</a>
+              <Link className="hover:text-brand-green transition-colors" to="/about">{t('nav.aboutUs')}</Link>
+              <a className="hover:text-brand-green transition-colors" href="mailto:hello@finquest.app">{t('footer.contact')}</a>
             </div>
           </div>
           <div className="mt-8 text-xs text-muted-foreground/60">
-            © {new Date().getFullYear()} FinQuest. Demo landing page.
+            © {new Date().getFullYear()} FinQuest. {t('footer.copy')}
           </div>
         </div>
       </footer>

@@ -2,6 +2,8 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import finquestLogo from '@/assets/finquest-logo.png'
 import { BookOpen, Gamepad2, TrendingUp, Target, Users, Lightbulb, Shield, Coins } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
+import { LanguageToggle } from '@/components/LanguageToggle'
 
 /* ── Scroll-reveal hook ── */
 function useReveal(threshold = 0.18) {
@@ -47,7 +49,6 @@ function AnimatedOrbs() {
   )
 }
 
-/* ── Floating pill tags (inspired by reference image) ── */
 function FloatingPills() {
   const pills = [
     { icon: <Gamepad2 size={14} />, label: 'Gamification', x: '8%', y: '15%', delay: 0 },
@@ -78,7 +79,6 @@ function FloatingPills() {
   )
 }
 
-/* ── Animated stat card (inspired by reference image) ── */
 function StatCard({ icon, value, label, delay = 0 }: { icon: ReactNode; value: string; label: string; delay?: number }) {
   const { ref, visible } = useReveal()
   const [count, setCount] = useState(0)
@@ -110,7 +110,6 @@ function StatCard({ icon, value, label, delay = 0 }: { icon: ReactNode; value: s
         transition: `all 0.7s cubic-bezier(0.16,1,0.3,1) ${delay}ms`,
       }}
     >
-      {/* Glow behind icon */}
       <div className="absolute top-4 h-16 w-16 rounded-full opacity-20 blur-[32px]" style={{ background: 'hsl(var(--brand-green))' }} />
       <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-2xl border border-brand-green/20 bg-brand-green/10 text-brand-green">
         {icon}
@@ -121,46 +120,23 @@ function StatCard({ icon, value, label, delay = 0 }: { icon: ReactNode; value: s
   )
 }
 
-const teamMembers = [
-  {
-    name: 'Beren Husein',
-    role: 'Co-Founder & Lead Designer',
-    initials: 'BH',
-    bio: 'Passionate about making complex financial concepts approachable through thoughtful design and gamification.',
-  },
-  {
-    name: 'Kaloyan Neshev',
-    role: 'Co-Founder & Lead Developer',
-    initials: 'KN',
-    bio: 'Full-stack engineer obsessed with building systems that teach through experience, not lectures.',
-  },
-  {
-    name: 'Niya Nietresta',
-    role: 'Product Strategist',
-    initials: 'NN',
-    bio: 'Bridges the gap between behavioral psychology and product design to create experiences that stick.',
-  },
-  {
-    name: 'Nevelina Stoyanova',
-    role: 'Content & Curriculum Lead',
-    initials: 'NS',
-    bio: 'Designs the learning paths and ensures every lesson drives real-world impact.',
-  },
-  {
-    name: 'Stilyan Krastev',
-    role: 'Engineering & Infrastructure',
-    initials: 'SK',
-    bio: 'Builds the simulation engine and data pipelines that power adaptive learning across the platform.',
-  },
-]
-
 export default function AboutUs() {
+  const { t } = useLanguage()
+
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const teamMembers = [
+    { name: 'Beren Husein', role: t('team.bh.role'), initials: 'BH', bio: t('team.bh.bio') },
+    { name: 'Kaloyan Neshev', role: t('team.kn.role'), initials: 'KN', bio: t('team.kn.bio') },
+    { name: 'Niya Nietresta', role: t('team.nn.role'), initials: 'NN', bio: t('team.nn.bio') },
+    { name: 'Nevelina Stoyanova', role: t('team.ns.role'), initials: 'NS', bio: t('team.ns.bio') },
+    { name: 'Stilyan Krastev', role: t('team.sk.role'), initials: 'SK', bio: t('team.sk.bio') },
+  ]
 
   return (
     <div className="min-h-screen text-foreground bg-noise">
@@ -183,8 +159,9 @@ export default function AboutUs() {
             <img src={finquestLogo} alt="FinQuest" className="relative z-10 h-8 w-8 object-contain drop-shadow-[0_0_6px_hsl(var(--brand-green)/0.3)]" />
             <span className="relative z-10 text-sm font-semibold tracking-tight hidden sm:inline text-foreground">FinQuest</span>
           </Link>
-          <Link to="/" className="nav-liquid-link"><span className="relative z-10">Home</span></Link>
-          <Link to="/about" className="nav-liquid-link"><span className="relative z-10">About Us</span></Link>
+          <Link to="/" className="nav-liquid-link"><span className="relative z-10">{t('nav.home')}</span></Link>
+          <Link to="/about" className="nav-liquid-link"><span className="relative z-10">{t('nav.aboutUs')}</span></Link>
+          <LanguageToggle />
         </nav>
       </header>
 
@@ -197,19 +174,18 @@ export default function AboutUs() {
             <Reveal>
               <div className="inline-flex items-center gap-2 rounded-full border border-brand-green/20 bg-brand-green/5 px-4 py-2 text-xs font-semibold text-brand-green">
                 <span className="inline-block h-2 w-2 rounded-full bg-brand-green animate-pulse" />
-                Our Story
+                {t('aboutPage.badge')}
               </div>
             </Reveal>
             <Reveal delay={100}>
               <h1 className="mt-6 text-balance text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl" style={{ lineHeight: '1.08' }}>
-                Building the future of<br />
-                <span className="text-brand-green">financial education.</span>
+                {t('aboutPage.title1')}<br />
+                <span className="text-brand-green">{t('aboutPage.title2')}</span>
               </h1>
             </Reveal>
             <Reveal delay={200}>
               <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                We believe everyone deserves the tools to make smart financial decisions — 
-                and that learning shouldn't feel like a chore.
+                {t('aboutPage.subtitle')}
               </p>
             </Reveal>
           </div>
@@ -219,9 +195,9 @@ export default function AboutUs() {
         <section className="relative overflow-hidden">
           <div className="mx-auto max-w-4xl px-4 py-12">
             <div className="grid grid-cols-3 gap-4">
-              <StatCard icon={<Users size={22} />} value="5" label="Team Members" delay={0} />
-              <StatCard icon={<Coins size={22} />} value="6" label="Learning Modules" delay={100} />
-              <StatCard icon={<Target size={22} />} value="1" label="Shared Mission" delay={200} />
+              <StatCard icon={<Users size={22} />} value="5" label={t('aboutPage.teamMembers')} delay={0} />
+              <StatCard icon={<Coins size={22} />} value="6" label={t('aboutPage.learningModules')} delay={100} />
+              <StatCard icon={<Target size={22} />} value="1" label={t('aboutPage.sharedMission')} delay={200} />
             </div>
           </div>
         </section>
@@ -230,62 +206,38 @@ export default function AboutUs() {
         <section>
           <div className="mx-auto max-w-4xl px-4 py-16 sm:py-20">
             <Reveal>
-              <div className="text-xs font-semibold text-brand-green">How It Started</div>
+              <div className="text-xs font-semibold text-brand-green">{t('aboutPage.howStarted')}</div>
               <h2 className="mt-2 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-                From a school idea to a mission.
+                {t('aboutPage.originTitle')}
               </h2>
             </Reveal>
 
             <div className="mt-10 space-y-8">
               <Reveal delay={100}>
                 <div className="rounded-3xl border border-border bg-secondary/40 p-6 sm:p-8 shadow-soft backdrop-blur-sm">
-                  <h3 className="text-lg font-semibold tracking-tight">The Problem We Saw</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    In 2024, five students from the same school — each with different interests in design, 
-                    engineering, psychology, and finance — kept running into the same wall: despite years of 
-                    education, none of them felt truly prepared to handle money. Budgeting, saving, investing, 
-                    insurance — the real-world financial skills that matter most were never taught in any 
-                    classroom. So they decided to do something about it.
-                  </p>
+                  <h3 className="text-lg font-semibold tracking-tight">{t('aboutPage.problemTitle')}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t('aboutPage.problemDesc')}</p>
                 </div>
               </Reveal>
 
               <Reveal delay={200}>
                 <div className="rounded-3xl border border-border bg-secondary/40 p-6 sm:p-8 shadow-soft backdrop-blur-sm">
-                  <h3 className="text-lg font-semibold tracking-tight">The Spark 💡</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    During a late-night gaming session, one of us said: "Why can't learning about money 
-                    feel like this — like a quest where every decision matters and you actually see the 
-                    consequences?" That question became the seed of FinQuest. We realized that the problem 
-                    wasn't a lack of information — it was a lack of engagement. Financial education was 
-                    boring, abstract, and disconnected from real life. What if we could change that by 
-                    combining RPG mechanics with behavioral psychology?
-                  </p>
+                  <h3 className="text-lg font-semibold tracking-tight">{t('aboutPage.sparkTitle')}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t('aboutPage.sparkDesc')}</p>
                 </div>
               </Reveal>
 
               <Reveal delay={300}>
                 <div className="rounded-3xl border border-border bg-secondary/40 p-6 sm:p-8 shadow-soft backdrop-blur-sm">
-                  <h3 className="text-lg font-semibold tracking-tight">The Mission 🎯</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    FinQuest was born from a simple belief: financial literacy should be a practice, not a lecture. 
-                    We set out to build a platform where users learn by doing — making simulated financial decisions, 
-                    seeing their consequences unfold in real-time, and receiving just-in-time lessons exactly when 
-                    they need them. No dark patterns, no gambling mechanics, no toxic competition. Just 
-                    meaningful progress toward real financial confidence.
-                  </p>
+                  <h3 className="text-lg font-semibold tracking-tight">{t('aboutPage.missionTitle')}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t('aboutPage.missionDesc')}</p>
                 </div>
               </Reveal>
 
               <Reveal delay={400}>
                 <div className="rounded-3xl border border-border bg-secondary/40 p-6 sm:p-8 shadow-soft backdrop-blur-sm">
-                  <h3 className="text-lg font-semibold tracking-tight">Where We Are Now 🚀</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    Today, FinQuest is an early-stage vision — a demo of what financial education could look like 
-                    when it's built with respect for the learner. We're refining our curriculum, testing simulation 
-                    mechanics, and building toward a platform that helps people go from "financially anxious" to 
-                    "financially confident," one quest at a time.
-                  </p>
+                  <h3 className="text-lg font-semibold tracking-tight">{t('aboutPage.nowTitle')}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{t('aboutPage.nowDesc')}</p>
                 </div>
               </Reveal>
             </div>
@@ -331,12 +283,12 @@ export default function AboutUs() {
           <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
             <Reveal>
               <div className="mx-auto max-w-2xl text-center">
-                <div className="text-xs font-semibold text-brand-green">The Team</div>
+                <div className="text-xs font-semibold text-brand-green">{t('aboutPage.teamEyebrow')}</div>
                 <h2 className="mt-2 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-                  The people behind the quest.
+                  {t('aboutPage.teamTitle')}
                 </h2>
                 <p className="mt-4 text-pretty text-muted-foreground">
-                  A multidisciplinary team united by one goal: making financial literacy accessible, engaging, and lasting.
+                  {t('aboutPage.teamDesc')}
                 </p>
               </div>
             </Reveal>
@@ -367,17 +319,17 @@ export default function AboutUs() {
           <div className="mx-auto max-w-3xl px-4 py-16 text-center">
             <Reveal>
               <h2 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-                Ready to start your quest?
+                {t('aboutPage.ctaTitle')}
               </h2>
               <p className="mt-4 text-muted-foreground">
-                Join us in reimagining how the world learns about money.
+                {t('aboutPage.ctaDesc')}
               </p>
               <div className="mt-8">
                 <Link
                   to="/"
                   className="inline-flex items-center justify-center rounded-2xl bg-brand-green px-8 py-3.5 text-sm font-semibold text-background shadow-[0_4px_24px_hsl(var(--brand-green)/0.3)] hover:bg-brand-green/90 active:scale-[0.97] transition-all duration-200"
                 >
-                  Back to Home
+                  {t('aboutPage.backHome')}
                 </Link>
               </div>
             </Reveal>
@@ -398,17 +350,17 @@ export default function AboutUs() {
                 </div>
               </div>
               <div className="mt-3 text-sm text-muted-foreground">
-                Financial literacy turned into practice through RPG-inspired gamification.
+                {t('footer.desc')}
               </div>
             </div>
             <div className="grid gap-2 text-sm text-muted-foreground">
-              <Link className="hover:text-brand-green transition-colors" to="/">Home</Link>
-              <Link className="hover:text-brand-green transition-colors" to="/about">About Us</Link>
-              <a className="hover:text-brand-green transition-colors" href="mailto:hello@finquest.app">Contact</a>
+              <Link className="hover:text-brand-green transition-colors" to="/">{t('nav.home')}</Link>
+              <Link className="hover:text-brand-green transition-colors" to="/about">{t('nav.aboutUs')}</Link>
+              <a className="hover:text-brand-green transition-colors" href="mailto:hello@finquest.app">{t('footer.contact')}</a>
             </div>
           </div>
           <div className="mt-8 text-xs text-muted-foreground/60">
-            © {new Date().getFullYear()} FinQuest. Demo landing page.
+            © {new Date().getFullYear()} FinQuest. {t('footer.copy')}
           </div>
         </div>
       </footer>
