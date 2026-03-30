@@ -98,7 +98,7 @@ const translations: Record<string, Record<Lang, string>> = {
   'mod.m4.mechanic': { en: 'Training Portfolio', bg: 'Тренировъчно портфолио' },
   'mod.m4.desc': { en: 'Risk, return, and compound interest without real market risk.', bg: 'Риск, възвращаемост и сложна лихва без реален пазарен риск.' },
   'mod.m5.title': { en: '5. Protection & Security', bg: '5. Защита и сигурност' },
-  'mod.m5.mechanic': { en: 'Scenario Quests', bg: 'Сценарийни куестове' },
+  'mod.m5.mechanic': { en: 'Scenario Quests', bg: 'Сценарийни мисии' },
   'mod.m5.desc': { en: 'Scam detection, insurance, and cyber hygiene.', bg: 'Разпознаване на измами, застраховки и кибер хигиена.' },
   'mod.m6.title': { en: '6. Financial Freedom', bg: '6. Финансова свобода' },
   'mod.m6.mechanic': { en: 'Fast Track Mode', bg: 'Бърз режим' },
@@ -141,7 +141,7 @@ const translations: Record<string, Record<Lang, string>> = {
 
   // CTA
   'cta.eyebrow': { en: 'Octolio • Early Vision', bg: 'Octolio • Ранна визия' },
-  'cta.title': { en: 'Be the first to see the quest in action.', bg: 'Бъди първият, който вижда куеста в действие.' },
+  'cta.title': { en: 'Be the first to see the quest in action.', bg: 'Бъди първият, който вижда мисията в действие.' },
   'cta.desc': { en: 'Leave your email to get prototype access and updates. (This form is a demo.)', bg: 'Остави имейла си за достъп до прототип и новини. (Този формуляр е демо.)' },
   'cta.email': { en: 'Email', bg: 'Имейл' },
   'cta.placeholder': { en: 'name@example.com', bg: 'име@пример.com' },
@@ -167,15 +167,15 @@ const translations: Record<string, Record<Lang, string>> = {
   'aboutPage.problemTitle': { en: 'The Problem We Saw', bg: 'Проблемът, който видяхме' },
   'aboutPage.problemDesc': { en: 'In 2024, five students from the same school — each with different interests in design, engineering, psychology, and finance — kept running into the same wall: despite years of education, none of them felt truly prepared to handle money. Budgeting, saving, investing, insurance — the real-world financial skills that matter most were never taught in any classroom. So they decided to do something about it.', bg: 'През 2024 г. пет ученици от едно и също училище — всеки с различни интереси в дизайна, инженерството, психологията и финансите — продължаваха да се сблъскват с една и съща стена: въпреки годините образование, никой от тях не се чувстваше наистина подготвен да управлява пари. Бюджетиране, спестяване, инвестиране, застраховане — реалните финансови умения, които са най-важни, никога не бяха преподавани в класната стая. Затова решиха да направят нещо по въпроса.' },
   'aboutPage.sparkTitle': { en: 'The Spark 💡', bg: 'Искрата 💡' },
-  'aboutPage.sparkDesc': { en: 'During a late-night gaming session, one of us said: "Why can\'t learning about money feel like this — like a quest where every decision matters and you actually see the consequences?" That question became the seed of Octolio. We realized that the problem wasn\'t a lack of information — it was a lack of engagement. Financial education was boring, abstract, and disconnected from real life. What if we could change that by combining RPG mechanics with behavioral psychology?', bg: 'По време на късна гейминг сесия, един от нас каза: "Защо ученето за пари не може да се усеща ето така — като куест, в който всяко решение има значение и наистина виждаш последствията?" Този въпрос се превърна в семето на Octolio. Осъзнахме, че проблемът не е липсата на информация — а липсата на ангажираност. Финансовото образование беше скучно, абстрактно и откъснато от реалния живот. Какво ако можехме да променим това, комбинирайки RPG механики с поведенческа психология?' },
+  'aboutPage.sparkDesc': { en: 'During a late-night gaming session, one of us said: "Why can\'t learning about money feel like this — like a quest where every decision matters and you actually see the consequences?" That question became the seed of Octolio. We realized that the problem wasn\'t a lack of information — it was a lack of engagement. Financial education was boring, abstract, and disconnected from real life. What if we could change that by combining RPG mechanics with behavioral psychology?', bg: 'По време на късна гейминг сесия, един от нас каза: "Защо ученето за пари не може да се усеща ето така — като мисия, в която всяко решение има значение и наистина виждаш последствията?" Този въпрос се превърна в семето на Octolio. Осъзнахме, че проблемът не е липсата на информация — а липсата на ангажираност. Финансовото образование беше скучно, абстрактно и откъснато от реалния живот. Какво ако можехме да променим това, комбинирайки RPG механики с поведенческа психология?' },
   'aboutPage.missionTitle': { en: 'The Mission 🎯', bg: 'Мисията 🎯' },
   'aboutPage.missionDesc': { en: 'Octolio was born from a simple belief: financial literacy should be a practice, not a lecture. We set out to build a platform where users learn by doing — making simulated financial decisions, seeing their consequences unfold in real-time, and receiving just-in-time lessons exactly when they need them. No dark patterns, no gambling mechanics, no toxic competition. Just meaningful progress toward real financial confidence.', bg: 'Octolio се роди от просто убеждение: финансовата грамотност трябва да е практика, а не лекция. Заехме се да изградим платформа, в която потребителите учат чрез правене — вземайки симулирани финансови решения, виждайки последствията им в реално време и получавайки уроци точно когато са им нужни. Без тъмни модели, без хазартни механики, без токсична конкуренция. Само смислен прогрес към реална финансова увереност.' },
   'aboutPage.nowTitle': { en: 'Where We Are Now 🚀', bg: 'Къде сме сега 🚀' },
-  'aboutPage.nowDesc': { en: 'Today, Octolio is an early-stage vision — a demo of what financial education could look like when it\'s built with respect for the learner. We\'re refining our curriculum, testing simulation mechanics, and building toward a platform that helps people go from "financially anxious" to "financially confident," one quest at a time.', bg: 'Днес Octolio е визия в ранен етап — демо на това как може да изглежда финансовото образование, когато е изградено с уважение към обучаемия. Усъвършенстваме учебната програма, тестваме симулационни механики и изграждаме платформа, която помага на хората да преминат от "финансово тревожни" към "финансово уверени," един куест наведнъж.' },
+  'aboutPage.nowDesc': { en: 'Today, Octolio is an early-stage vision — a demo of what financial education could look like when it\'s built with respect for the learner. We\'re refining our curriculum, testing simulation mechanics, and building toward a platform that helps people go from "financially anxious" to "financially confident," one quest at a time.', bg: 'Днес Octolio е визия в ранен етап — демо на това как може да изглежда финансовото образование, когато е изградено с уважение към обучаемия. Усъвършенстваме учебната програма, тестваме симулационни механики и изграждаме платформа, която помага на хората да преминат от "финансово тревожни" към "финансово уверени," една мисия наведнъж.' },
   'aboutPage.teamEyebrow': { en: 'The Team', bg: 'Екипът' },
-  'aboutPage.teamTitle': { en: 'The people behind the quest.', bg: 'Хората зад куеста.' },
+  'aboutPage.teamTitle': { en: 'The people behind the quest.', bg: 'Хората зад мисията.' },
   'aboutPage.teamDesc': { en: 'A multidisciplinary team united by one goal: making financial literacy accessible, engaging, and lasting.', bg: 'Мултидисциплинарен екип, обединен от една цел: финансовата грамотност да е достъпна, ангажираща и трайна.' },
-  'aboutPage.ctaTitle': { en: 'Ready to start your quest?', bg: 'Готов ли си да започнеш куеста?' },
+  'aboutPage.ctaTitle': { en: 'Ready to start your quest?', bg: 'Готов ли си да започнеш мисията?' },
   'aboutPage.ctaDesc': { en: 'Join us in reimagining how the world learns about money.', bg: 'Присъедини се в преосмислянето на начина, по който светът учи за парите.' },
   'aboutPage.backHome': { en: 'Back to Home', bg: 'Обратно към началото' },
 
@@ -190,6 +190,8 @@ const translations: Record<string, Record<Lang, string>> = {
   'team.ns.bio': { en: 'Designs the learning paths and ensures every lesson drives real-world impact.', bg: 'Проектира учебните пътеки и гарантира, че всеки урок има реално въздействие.' },
   'team.sk.role': { en: 'Engineering & Infrastructure', bg: 'Инженерство и инфраструктура' },
   'team.sk.bio': { en: 'Builds the simulation engine and data pipelines that power adaptive learning across the platform.', bg: 'Изгражда симулационния двигател и данните, които захранват адаптивното учене в платформата.' },
+  'team.ms.role': { en: 'Lead Developer', bg: 'Водещ разработчик' },
+  'team.ms.bio': { en: 'Leads the development of the Octolio website and platform, turning design vision into a polished, performant experience.', bg: 'Ръководи разработката на уебсайта и платформата на Octolio, превръщайки дизайнерската визия в изпипано и производително преживяване.' },
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)

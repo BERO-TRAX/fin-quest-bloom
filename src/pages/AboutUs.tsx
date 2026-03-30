@@ -136,6 +136,7 @@ export default function AboutUs() {
     { name: 'Niya Nietresta', role: t('team.nn.role'), initials: 'NN', bio: t('team.nn.bio') },
     { name: 'Nevelina Stoyanova', role: t('team.ns.role'), initials: 'NS', bio: t('team.ns.bio') },
     { name: 'Stilyan Krastev', role: t('team.sk.role'), initials: 'SK', bio: t('team.sk.bio') },
+    { name: 'Mihail Sinigerov', role: t('team.ms.role'), initials: 'MS', bio: t('team.ms.bio') },
   ]
 
   return (
@@ -195,7 +196,7 @@ export default function AboutUs() {
         <section className="relative overflow-hidden">
           <div className="mx-auto max-w-4xl px-4 py-12">
             <div className="grid grid-cols-3 gap-4">
-              <StatCard icon={<Users size={22} />} value="5" label={t('aboutPage.teamMembers')} delay={0} />
+              <StatCard icon={<Users size={22} />} value="6" label={t('aboutPage.teamMembers')} delay={0} />
               <StatCard icon={<Coins size={22} />} value="6" label={t('aboutPage.learningModules')} delay={100} />
               <StatCard icon={<Target size={22} />} value="1" label={t('aboutPage.sharedMission')} delay={200} />
             </div>
