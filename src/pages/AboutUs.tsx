@@ -136,6 +136,7 @@ export default function AboutUs() {
     { name: 'Niya Nietresta', role: t('team.nn.role'), initials: 'NN', bio: t('team.nn.bio') },
     { name: 'Nevelina Stoyanova', role: t('team.ns.role'), initials: 'NS', bio: t('team.ns.bio') },
     { name: 'Stilyan Krastev', role: t('team.sk.role'), initials: 'SK', bio: t('team.sk.bio') },
+    { name: 'Mihail Sinigerov', role: t('team.ms.role'), initials: 'MS', bio: t('team.ms.bio') },
   ]
 
   return (
