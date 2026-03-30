@@ -175,7 +175,7 @@ const translations: Record<string, Record<Lang, string>> = {
   'aboutPage.teamEyebrow': { en: 'The Team', bg: 'Екипът' },
   'aboutPage.teamTitle': { en: 'The people behind the quest.', bg: 'Хората зад мисията.' },
   'aboutPage.teamDesc': { en: 'A multidisciplinary team united by one goal: making financial literacy accessible, engaging, and lasting.', bg: 'Мултидисциплинарен екип, обединен от една цел: финансовата грамотност да е достъпна, ангажираща и трайна.' },
-  'aboutPage.ctaTitle': { en: 'Ready to start your quest?', bg: 'Готов ли си да започнеш куеста?' },
+  'aboutPage.ctaTitle': { en: 'Ready to start your quest?', bg: 'Готов ли си да започнеш мисията?' },
   'aboutPage.ctaDesc': { en: 'Join us in reimagining how the world learns about money.', bg: 'Присъедини се в преосмислянето на начина, по който светът учи за парите.' },
   'aboutPage.backHome': { en: 'Back to Home', bg: 'Обратно към началото' },
 
