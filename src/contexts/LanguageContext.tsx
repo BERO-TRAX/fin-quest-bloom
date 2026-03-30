@@ -190,6 +190,8 @@ const translations: Record<string, Record<Lang, string>> = {
   'team.ns.bio': { en: 'Designs the learning paths and ensures every lesson drives real-world impact.', bg: 'Проектира учебните пътеки и гарантира, че всеки урок има реално въздействие.' },
   'team.sk.role': { en: 'Engineering & Infrastructure', bg: 'Инженерство и инфраструктура' },
   'team.sk.bio': { en: 'Builds the simulation engine and data pipelines that power adaptive learning across the platform.', bg: 'Изгражда симулационния двигател и данните, които захранват адаптивното учене в платформата.' },
+  'team.ms.role': { en: 'Lead Developer', bg: 'Водещ разработчик' },
+  'team.ms.bio': { en: 'Leads the development of the Octolio website and platform, turning design vision into a polished, performant experience.', bg: 'Ръководи разработката на уебсайта и платформата на Octolio, превръщайки дизайнерската визия в изпипано и производително преживяване.' },
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
