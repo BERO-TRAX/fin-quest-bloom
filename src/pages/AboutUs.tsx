@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import finquestLogo from '@/assets/finquest-logo.png'
+import octolioLogo from '@/assets/octolio-logo.png'
 import { BookOpen, Gamepad2, TrendingUp, Target, Users, Lightbulb, Shield, Coins } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { LanguageToggle } from '@/components/LanguageToggle'
@@ -155,9 +155,9 @@ export default function AboutUs() {
           }}
           aria-label="Navigation"
         >
-          <Link to="/" className="flex items-center gap-2 rounded-full px-3 py-1.5 nav-liquid-link" aria-label="FinQuest">
-            <img src={finquestLogo} alt="FinQuest" className="relative z-10 h-8 w-8 object-contain drop-shadow-[0_0_6px_hsl(var(--brand-green)/0.3)]" />
-            <span className="relative z-10 text-sm font-semibold tracking-tight hidden sm:inline text-foreground">FinQuest</span>
+          <Link to="/" className="flex items-center gap-2 rounded-full px-3 py-1.5 nav-liquid-link" aria-label="Octolio">
+            <img src={octolioLogo} alt="Octolio" className="relative z-10 h-8 w-8 object-contain drop-shadow-[0_0_6px_hsl(var(--brand-green)/0.3)]" />
+            <span className="relative z-10 text-sm font-semibold tracking-tight hidden sm:inline text-foreground">Octolio</span>
           </Link>
           <Link to="/" className="nav-liquid-link"><span className="relative z-10">{t('nav.home')}</span></Link>
           <Link to="/about" className="nav-liquid-link"><span className="relative z-10">{t('nav.aboutUs')}</span></Link>
@@ -343,9 +343,9 @@ export default function AboutUs() {
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <div className="flex items-center gap-2.5">
-                <img src={finquestLogo} alt="FinQuest logo" className="h-10 w-10 object-contain drop-shadow-[0_0_8px_hsl(var(--brand-green)/0.4)]" />
+                <img src={octolioLogo} alt="Octolio logo" className="h-10 w-10 object-contain drop-shadow-[0_0_8px_hsl(var(--brand-green)/0.4)]" />
                 <div className="leading-tight">
-                  <div className="text-sm font-semibold tracking-tight">FinQuest</div>
+                  <div className="text-sm font-semibold tracking-tight">Octolio</div>
                   <div className="text-[11px] text-muted-foreground">FinTech x EdTech RPG</div>
                 </div>
               </div>
@@ -356,11 +356,11 @@ export default function AboutUs() {
             <div className="grid gap-2 text-sm text-muted-foreground">
               <Link className="hover:text-brand-green transition-colors" to="/">{t('nav.home')}</Link>
               <Link className="hover:text-brand-green transition-colors" to="/about">{t('nav.aboutUs')}</Link>
-              <a className="hover:text-brand-green transition-colors" href="mailto:hello@finquest.app">{t('footer.contact')}</a>
+              <a className="hover:text-brand-green transition-colors" href="mailto:hello@octolio.app">{t('footer.contact')}</a>
             </div>
           </div>
           <div className="mt-8 text-xs text-muted-foreground/60">
-            © {new Date().getFullYear()} FinQuest. {t('footer.copy')}
+            © {new Date().getFullYear()} Octolio. {t('footer.copy')}
           </div>
         </div>
       </footer>
