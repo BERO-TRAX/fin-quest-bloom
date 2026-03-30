@@ -173,7 +173,7 @@ const translations: Record<string, Record<Lang, string>> = {
   'aboutPage.nowTitle': { en: 'Where We Are Now 🚀', bg: 'Къде сме сега 🚀' },
   'aboutPage.nowDesc': { en: 'Today, Octolio is an early-stage vision — a demo of what financial education could look like when it\'s built with respect for the learner. We\'re refining our curriculum, testing simulation mechanics, and building toward a platform that helps people go from "financially anxious" to "financially confident," one quest at a time.', bg: 'Днес Octolio е визия в ранен етап — демо на това как може да изглежда финансовото образование, когато е изградено с уважение към обучаемия. Усъвършенстваме учебната програма, тестваме симулационни механики и изграждаме платформа, която помага на хората да преминат от "финансово тревожни" към "финансово уверени," една мисия наведнъж.' },
   'aboutPage.teamEyebrow': { en: 'The Team', bg: 'Екипът' },
-  'aboutPage.teamTitle': { en: 'The people behind the quest.', bg: 'Хората зад куеста.' },
+  'aboutPage.teamTitle': { en: 'The people behind the quest.', bg: 'Хората зад мисията.' },
   'aboutPage.teamDesc': { en: 'A multidisciplinary team united by one goal: making financial literacy accessible, engaging, and lasting.', bg: 'Мултидисциплинарен екип, обединен от една цел: финансовата грамотност да е достъпна, ангажираща и трайна.' },
   'aboutPage.ctaTitle': { en: 'Ready to start your quest?', bg: 'Готов ли си да започнеш куеста?' },
   'aboutPage.ctaDesc': { en: 'Join us in reimagining how the world learns about money.', bg: 'Присъедини се в преосмислянето на начина, по който светът учи за парите.' },
