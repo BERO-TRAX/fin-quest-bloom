@@ -141,7 +141,7 @@ const translations: Record<string, Record<Lang, string>> = {
 
   // CTA
   'cta.eyebrow': { en: 'Octolio • Early Vision', bg: 'Octolio • Ранна визия' },
-  'cta.title': { en: 'Be the first to see the quest in action.', bg: 'Бъди първият, който вижда куеста в действие.' },
+  'cta.title': { en: 'Be the first to see the quest in action.', bg: 'Бъди първият, който вижда мисията в действие.' },
   'cta.desc': { en: 'Leave your email to get prototype access and updates. (This form is a demo.)', bg: 'Остави имейла си за достъп до прототип и новини. (Този формуляр е демо.)' },
   'cta.email': { en: 'Email', bg: 'Имейл' },
   'cta.placeholder': { en: 'name@example.com', bg: 'име@пример.com' },
