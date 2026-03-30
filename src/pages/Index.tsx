@@ -211,6 +211,15 @@ export default function Index() {
     { title: t('hiw.s5.title'), description: t('hiw.s5.desc') },
   ], [t])
 
+  const moduleImages: Record<string, string> = {
+    survival: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&h=240&fit=crop&auto=format&q=80',
+    debt: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=240&fit=crop&auto=format&q=80',
+    budget: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=240&fit=crop&auto=format&q=80',
+    invest: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=240&fit=crop&auto=format&q=80',
+    guard: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&h=240&fit=crop&auto=format&q=80',
+    wealth: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=600&h=240&fit=crop&auto=format&q=80',
+  }
+
   const modules = useMemo(() => [
     { key: 'survival', title: t('mod.m1.title'), mechanic: t('mod.m1.mechanic'), desc: t('mod.m1.desc') },
     { key: 'debt', title: t('mod.m2.title'), mechanic: t('mod.m2.mechanic'), desc: t('mod.m2.desc') },
@@ -459,6 +468,21 @@ export default function Index() {
               {/* Command Center Mock */}
               <Reveal delay={200}>
                 <div className="relative">
+                  <div className="mb-4 relative h-52 rounded-3xl overflow-hidden">
+                    <img
+                      src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=400&fit=crop&auto=format&q=80"
+                      alt="Financial literacy"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="inline-flex items-center gap-2 rounded-full border border-brand-green/30 bg-background/60 px-3 py-1.5 text-xs font-semibold text-brand-green backdrop-blur-md">
+                        <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-green animate-pulse" />
+                        Financial Learning Reimagined
+                      </div>
+                    </div>
+                  </div>
                   <div className="rounded-3xl border border-border bg-secondary/40 p-5 shadow-soft backdrop-blur-sm">
                     <div className="flex items-center justify-between gap-4">
                       <div>
@@ -569,19 +593,30 @@ export default function Index() {
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {modules.map((m, i) => (
               <Reveal key={m.key} delay={i * 80}>
-                <div className="rounded-3xl border border-border bg-secondary/40 p-6 shadow-soft backdrop-blur-sm transition-[box-shadow,transform] duration-300 hover:shadow-[0_14px_40px_rgba(0,0,0,0.45)] hover:-translate-y-1">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <div className="text-sm font-semibold text-foreground/90">{m.title}</div>
-                      <div className="mt-2 text-xs font-semibold text-brand-green ring-1 ring-brand-green/20 bg-brand-green/10 inline-flex rounded-full px-3 py-1">
-                        {t('mod.mechanic')}: {m.mechanic}
+                <div className="rounded-3xl border border-border bg-secondary/40 overflow-hidden shadow-soft backdrop-blur-sm transition-[box-shadow,transform] duration-300 hover:shadow-[0_14px_40px_rgba(0,0,0,0.45)] hover:-translate-y-1">
+                  <div className="relative h-40">
+                    <img
+                      src={moduleImages[m.key]}
+                      alt={m.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-secondary/90" />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <div className="text-sm font-semibold text-foreground/90">{m.title}</div>
+                        <div className="mt-2 text-xs font-semibold text-brand-green ring-1 ring-brand-green/20 bg-brand-green/10 inline-flex rounded-full px-3 py-1">
+                          {t('mod.mechanic')}: {m.mechanic}
+                        </div>
+                      </div>
+                      <div className="h-10 w-10 rounded-2xl bg-brand-green/10 ring-1 ring-brand-green/20 flex items-center justify-center text-brand-green font-bold text-xs">
+                        {m.key === 'survival' ? 'SF' : m.key === 'debt' ? 'DS' : m.key === 'budget' ? 'AR' : m.key === 'invest' ? 'IV' : m.key === 'guard' ? 'GD' : 'WT'}
                       </div>
                     </div>
-                    <div className="h-10 w-10 rounded-2xl bg-brand-green/10 ring-1 ring-brand-green/20 flex items-center justify-center text-brand-green font-bold text-xs">
-                      {m.key === 'survival' ? 'SF' : m.key === 'debt' ? 'DS' : m.key === 'budget' ? 'AR' : m.key === 'invest' ? 'IV' : m.key === 'guard' ? 'GD' : 'WT'}
-                    </div>
+                    <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{m.desc}</p>
                   </div>
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{m.desc}</p>
                 </div>
               </Reveal>
             ))}

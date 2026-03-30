@@ -213,6 +213,28 @@ export default function AboutUs() {
               </h2>
             </Reveal>
 
+            <Reveal delay={80}>
+              <div className="mt-8 relative h-56 sm:h-72 rounded-3xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop&auto=format&q=80"
+                  alt="Team collaboration"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/30" />
+                <div className="absolute inset-0 flex items-center px-8">
+                  <div className="max-w-xs">
+                    <div className="text-lg font-semibold tracking-tight text-foreground drop-shadow-lg">
+                      {t('aboutPage.originTitle')}
+                    </div>
+                    <div className="mt-1 text-sm text-muted-foreground drop-shadow">
+                      {t('aboutPage.badge')}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
             <div className="mt-10 space-y-8">
               <Reveal delay={100}>
                 <div className="rounded-3xl border border-border bg-secondary/40 p-6 sm:p-8 shadow-soft backdrop-blur-sm">
@@ -294,7 +316,19 @@ export default function AboutUs() {
               </div>
             </Reveal>
 
-            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <Reveal delay={80}>
+              <div className="mt-10 relative h-44 rounded-3xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=500&fit=crop&auto=format&q=80"
+                  alt="Team at work"
+                  className="w-full h-full object-cover object-top"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/80" />
+              </div>
+            </Reveal>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {teamMembers.map((member, i) => (
                 <Reveal key={member.name} delay={i * 80}>
                   <div className="h-full rounded-3xl border border-border bg-secondary/40 p-6 shadow-soft backdrop-blur-sm transition-[box-shadow,transform] duration-300 hover:shadow-[0_14px_40px_rgba(0,0,0,0.45)] hover:-translate-y-1">
