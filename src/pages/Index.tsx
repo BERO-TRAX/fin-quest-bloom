@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import finquestLogo from '@/assets/finquest-logo.png'
+import octolioLogo from '@/assets/octolio-logo.png'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { LanguageToggle } from '@/components/LanguageToggle'
 
@@ -92,9 +92,9 @@ function AnimatedOrbs() {
 function LogoMark() {
   return (
     <div className="flex items-center gap-2.5">
-      <img src={finquestLogo} alt="FinQuest logo" className="h-10 w-10 object-contain drop-shadow-[0_0_8px_hsl(var(--brand-green)/0.4)]" />
+      <img src={octolioLogo} alt="Octolio logo" className="h-10 w-10 object-contain drop-shadow-[0_0_8px_hsl(var(--brand-green)/0.4)]" />
       <div className="leading-tight">
-        <div className="text-sm font-semibold tracking-tight">FinQuest</div>
+        <div className="text-sm font-semibold tracking-tight">Octolio</div>
         <div className="text-[11px] text-muted-foreground">FinTech x EdTech RPG</div>
       </div>
     </div>
@@ -253,9 +253,9 @@ export default function Index() {
           }}
           aria-label="Navigation"
         >
-          <Link to="/" className="flex items-center gap-2 rounded-full px-3 py-1.5 nav-liquid-link" aria-label="FinQuest">
-            <img src={finquestLogo} alt="FinQuest" className="relative z-10 h-8 w-8 object-contain drop-shadow-[0_0_6px_hsl(var(--brand-green)/0.3)]" />
-            <span className="relative z-10 text-sm font-semibold tracking-tight hidden sm:inline text-foreground">FinQuest</span>
+          <Link to="/" className="flex items-center gap-2 rounded-full px-3 py-1.5 nav-liquid-link" aria-label="Octolio">
+            <img src={octolioLogo} alt="Octolio" className="relative z-10 h-8 w-8 object-contain drop-shadow-[0_0_6px_hsl(var(--brand-green)/0.3)]" />
+            <span className="relative z-10 text-sm font-semibold tracking-tight hidden sm:inline text-foreground">Octolio</span>
           </Link>
 
           <div className="hidden md:flex items-center">
@@ -350,7 +350,7 @@ export default function Index() {
               }}
             >
               <img
-                src={finquestLogo}
+                src={octolioLogo}
                 alt=""
                 className="mx-auto h-24 w-24 object-contain drop-shadow-[0_0_40px_hsl(var(--brand-green)/0.4)]"
               />
@@ -728,11 +728,11 @@ export default function Index() {
               <a className="hover:text-brand-green transition-colors" href="#modules">{t('nav.modules')}</a>
               <a className="hover:text-brand-green transition-colors" href="#faq">{t('nav.faq')}</a>
               <Link className="hover:text-brand-green transition-colors" to="/about">{t('nav.aboutUs')}</Link>
-              <a className="hover:text-brand-green transition-colors" href="mailto:hello@finquest.app">{t('footer.contact')}</a>
+              <a className="hover:text-brand-green transition-colors" href="mailto:hello@octolio.app">{t('footer.contact')}</a>
             </div>
           </div>
           <div className="mt-8 text-xs text-muted-foreground/60">
-            © {new Date().getFullYear()} FinQuest. {t('footer.copy')}
+            © {new Date().getFullYear()} Octolio. {t('footer.copy')}
           </div>
         </div>
       </footer>
