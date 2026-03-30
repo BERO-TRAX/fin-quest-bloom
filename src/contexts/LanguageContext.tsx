@@ -98,7 +98,7 @@ const translations: Record<string, Record<Lang, string>> = {
   'mod.m4.mechanic': { en: 'Training Portfolio', bg: 'Тренировъчно портфолио' },
   'mod.m4.desc': { en: 'Risk, return, and compound interest without real market risk.', bg: 'Риск, възвращаемост и сложна лихва без реален пазарен риск.' },
   'mod.m5.title': { en: '5. Protection & Security', bg: '5. Защита и сигурност' },
-  'mod.m5.mechanic': { en: 'Scenario Quests', bg: 'Сценарийни куестове' },
+  'mod.m5.mechanic': { en: 'Scenario Quests', bg: 'Сценарийни мисии' },
   'mod.m5.desc': { en: 'Scam detection, insurance, and cyber hygiene.', bg: 'Разпознаване на измами, застраховки и кибер хигиена.' },
   'mod.m6.title': { en: '6. Financial Freedom', bg: '6. Финансова свобода' },
   'mod.m6.mechanic': { en: 'Fast Track Mode', bg: 'Бърз режим' },
