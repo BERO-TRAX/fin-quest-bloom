@@ -1,6 +1,13 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import octolioLogo from '@/assets/octolio-logo.png'
+import imgFinancialLiteracy from '@/assets/financial-literacy.jpg'
+import imgModuleSurvival from '@/assets/financial-literacy.jpg'
+import imgModuleDebt from '@/assets/module-debt.jpg'
+import imgModuleBudget from '@/assets/module-budget.jpg'
+import imgModuleInvest from '@/assets/module-invest.jpg'
+import imgModuleGuard from '@/assets/module-guard.jpg'
+import imgModuleWealth from '@/assets/module-wealth.jpg'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { LanguageToggle } from '@/components/LanguageToggle'
 
@@ -212,12 +219,12 @@ export default function Index() {
   ], [t])
 
   const moduleImages: Record<string, string> = {
-    survival: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&h=240&fit=crop&auto=format&q=80',
-    debt: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=240&fit=crop&auto=format&q=80',
-    budget: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600&h=240&fit=crop&auto=format&q=80',
-    invest: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=240&fit=crop&auto=format&q=80',
-    guard: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&h=240&fit=crop&auto=format&q=80',
-    wealth: 'https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=600&h=240&fit=crop&auto=format&q=80',
+    survival: imgModuleSurvival,
+    debt: imgModuleDebt,
+    budget: imgModuleBudget,
+    invest: imgModuleInvest,
+    guard: imgModuleGuard,
+    wealth: imgModuleWealth,
   }
 
   const modules = useMemo(() => [
@@ -470,7 +477,7 @@ export default function Index() {
                 <div className="relative">
                   <div className="mb-4 relative h-52 rounded-3xl overflow-hidden">
                     <img
-                      src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=400&fit=crop&auto=format&q=80"
+                      src={imgFinancialLiteracy}
                       alt="Financial literacy"
                       className="w-full h-full object-cover"
                       loading="lazy"

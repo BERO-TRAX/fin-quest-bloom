@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import octolioLogo from '@/assets/octolio-logo.png'
+import teamCollaboration from '@/assets/team-collaboration.jpg'
+import teamAtWork from '@/assets/team-at-work.jpg'
 import { BookOpen, Gamepad2, TrendingUp, Target, Users, Lightbulb, Shield, Coins } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { LanguageToggle } from '@/components/LanguageToggle'
@@ -216,7 +218,7 @@ export default function AboutUs() {
             <Reveal delay={80}>
               <div className="mt-8 relative h-56 sm:h-72 rounded-3xl overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop&auto=format&q=80"
+                  src={teamCollaboration}
                   alt="Team collaboration"
                   className="w-full h-full object-cover"
                   loading="lazy"
@@ -319,7 +321,7 @@ export default function AboutUs() {
             <Reveal delay={80}>
               <div className="mt-10 relative h-44 rounded-3xl overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=500&fit=crop&auto=format&q=80"
+                  src={teamAtWork}
                   alt="Team at work"
                   className="w-full h-full object-cover object-top"
                   loading="lazy"
