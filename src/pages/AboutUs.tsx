@@ -6,6 +6,7 @@ import teamAtWork from '@/assets/team-at-work.jpg'
 import { BookOpen, Gamepad2, TrendingUp, Target, Users, Lightbulb, Shield, Coins } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { LanguageToggle } from '@/components/LanguageToggle'
+import { AuroraBackground } from '@/components/AuroraBackground'
 
 /* ── Scroll-reveal hook ── */
 function useReveal(threshold = 0.18) {
@@ -143,19 +144,14 @@ export default function AboutUs() {
 
   return (
     <div className="min-h-screen text-foreground bg-noise">
+      <AuroraBackground />
       {/* ── NAVBAR ── */}
       <header
         className="fixed top-0 left-0 right-0 z-50 flex justify-center transition-all duration-500"
         style={{ paddingTop: scrolled ? '8px' : '16px' }}
       >
         <nav
-          className="flex items-center gap-1 rounded-full border border-border/60 px-2 py-1.5 backdrop-blur-xl transition-all duration-500"
-          style={{
-            background: scrolled ? 'hsla(228, 24%, 8%, 0.75)' : 'hsla(228, 24%, 8%, 0.45)',
-            boxShadow: scrolled
-              ? '0 8px 32px rgba(0,0,0,0.4), inset 0 0.5px 0 rgba(255,255,255,0.06)'
-              : '0 4px 20px rgba(0,0,0,0.2), inset 0 0.5px 0 rgba(255,255,255,0.04)',
-          }}
+          className={`flex items-center gap-1 rounded-full px-2 py-1.5 nav-liquid-bar transition-all duration-500${scrolled ? ' scrolled' : ''}`}
           aria-label="Navigation"
         >
           <Link to="/" className="flex items-center gap-2 rounded-full px-3 py-1.5 nav-liquid-link" aria-label="Octolio">

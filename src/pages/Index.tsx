@@ -10,6 +10,7 @@ import imgModuleGuard from '@/assets/module-guard.jpg'
 import imgModuleWealth from '@/assets/module-wealth.jpg'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { LanguageToggle } from '@/components/LanguageToggle'
+import { AuroraBackground } from '@/components/AuroraBackground'
 
 /* ── Scroll-reveal hook ── */
 function useReveal(threshold = 0.18) {
@@ -71,25 +72,39 @@ function FloatingEmoji({ emoji, className, style }: { emoji: string; className?:
   )
 }
 
+
+
 /* ── Animated background orbs ── */
 function AnimatedOrbs() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      {/* Grid pattern */}
       <div
-        className="absolute left-[15%] top-[20%] h-[300px] w-[300px] rounded-full opacity-[0.12] blur-[120px]"
-        style={{ background: 'hsl(var(--brand-green))', animation: 'orb-float-1 12s ease-in-out infinite' }}
+        className="absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage: 'linear-gradient(hsl(160 55% 55% / 1) 1px, transparent 1px), linear-gradient(90deg, hsl(160 55% 55% / 1) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+        }}
       />
       <div
-        className="absolute right-[20%] top-[30%] h-[250px] w-[250px] rounded-full opacity-[0.08] blur-[100px]"
-        style={{ background: 'hsl(var(--primary))', animation: 'orb-float-2 15s ease-in-out infinite' }}
+        className="absolute left-[10%] top-[15%] h-[420px] w-[420px] rounded-full opacity-[0.18] blur-[130px]"
+        style={{ background: 'hsl(160 65% 50%)', animation: 'orb-float-1 12s ease-in-out infinite' }}
       />
       <div
-        className="absolute left-[50%] bottom-[15%] h-[200px] w-[200px] rounded-full opacity-[0.07] blur-[80px]"
-        style={{ background: 'hsl(var(--brand-green))', animation: 'orb-float-3 18s ease-in-out infinite' }}
+        className="absolute right-[12%] top-[20%] h-[320px] w-[320px] rounded-full opacity-[0.12] blur-[110px]"
+        style={{ background: 'hsl(239 84% 67%)', animation: 'orb-float-2 15s ease-in-out infinite' }}
       />
       <div
-        className="absolute right-[35%] top-[60%] h-[120px] w-[120px] rounded-full opacity-[0.05] blur-[60px]"
-        style={{ background: 'hsl(var(--brand-green))', animation: 'orb-float-1 20s ease-in-out infinite reverse' }}
+        className="absolute left-[45%] bottom-[10%] h-[280px] w-[280px] rounded-full opacity-[0.10] blur-[100px]"
+        style={{ background: 'hsl(200 70% 55%)', animation: 'orb-float-3 18s ease-in-out infinite' }}
+      />
+      <div
+        className="absolute right-[30%] top-[55%] h-[180px] w-[180px] rounded-full opacity-[0.08] blur-[80px]"
+        style={{ background: 'hsl(160 65% 50%)', animation: 'orb-float-1 20s ease-in-out infinite reverse' }}
+      />
+      <div
+        className="absolute left-[60%] top-[10%] h-[150px] w-[150px] rounded-full opacity-[0.07] blur-[70px]"
+        style={{ background: 'hsl(280 60% 65%)', animation: 'orb-float-2 22s ease-in-out infinite reverse' }}
       />
     </div>
   )
@@ -248,6 +263,8 @@ export default function Index() {
 
   return (
     <div className="min-h-screen text-foreground bg-noise">
+      <AuroraBackground />
+
       <a href="#content" className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-foreground focus:px-4 focus:py-2 focus:text-background">
         Skip to content
       </a>
@@ -258,15 +275,7 @@ export default function Index() {
         style={{ paddingTop: scrolled ? '8px' : '16px' }}
       >
         <nav
-          className="flex items-center gap-1 rounded-full border border-border/60 px-2 py-1.5 backdrop-blur-xl transition-all duration-500"
-          style={{
-            background: scrolled
-              ? 'hsla(228, 24%, 8%, 0.75)'
-              : 'hsla(228, 24%, 8%, 0.45)',
-            boxShadow: scrolled
-              ? '0 8px 32px rgba(0,0,0,0.4), inset 0 0.5px 0 rgba(255,255,255,0.06)'
-              : '0 4px 20px rgba(0,0,0,0.2), inset 0 0.5px 0 rgba(255,255,255,0.04)',
-          }}
+          className={`flex items-center gap-1 rounded-full px-2 py-1.5 nav-liquid-bar transition-all duration-500${scrolled ? ' scrolled' : ''}`}
           aria-label="Navigation"
         >
           <Link to="/" className="flex items-center gap-2 rounded-full px-3 py-1.5 nav-liquid-link" aria-label="Octolio">
@@ -337,7 +346,6 @@ export default function Index() {
       <main id="content">
         {/* ══════════ PERSISTENT HERO ══════════ */}
         <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-          <AnimatedOrbs />
 
           {/* Floating emojis around hero */}
           <FloatingEmoji emoji="🐙" className="left-[8%] top-[18%] opacity-70" style={{ animationDelay: '0s', animationDuration: '4s' }} />
