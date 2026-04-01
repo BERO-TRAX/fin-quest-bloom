@@ -9,30 +9,55 @@ export function AuroraBackground() {
     if (!ctx) return
     let animId: number
     let t = 0
-    const resize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight }
-    resize()
-    window.addEventListener('resize', resize)
+
+    // Use window dimensions as the source of truth — avoids 0-size on mobile mount
+    const resize = () => {
+      const w = window.innerWidth
+      const h = window.innerHeight
+      canvas.width = w
+      canvas.height = h
+    }
 
     const COUNT = 80
     const MAX_DIST = 140
-    const particles = Array.from({ length: COUNT }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      r: Math.random() * 2 + 0.8,
-    }))
+    const particles: { x: number; y: number; vx: number; vy: number; r: number }[] = []
+    const scatter = () => {
+      particles.length = 0
+      for (let i = 0; i < COUNT; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          r: Math.random() * 2 + 0.8,
+        })
+      }
+    }
 
     const TICKERS = ['+2.4%', '-1.1%', '+5.7%', '$ETH', '$BTC', '+0.8%', '-3.2%', '+12%', '$SPY', '+1.9%', '-0.5%', '+8.3%']
     const tickerItems = Array.from({ length: 18 }, (_, i) => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
+      x: 0, y: 0,
       vy: -(Math.random() * 0.4 + 0.15),
       label: TICKERS[i % TICKERS.length],
       positive: TICKERS[i % TICKERS.length].startsWith('+'),
       alpha: Math.random() * 0.3 + 0.08,
       size: Math.random() * 5 + 9,
     }))
+    const scatterTickers = () => {
+      for (const tk of tickerItems) {
+        tk.x = Math.random() * canvas.width
+        tk.y = Math.random() * canvas.height
+      }
+    }
+
+    const onResize = () => { resize(); scatter(); scatterTickers() }
+
+    // Init — defer one frame so layout is ready
+    requestAnimationFrame(() => {
+      resize()
+      scatter()
+      scatterTickers()
+    })
 
     const draw = () => {
       t += 0.005
@@ -100,8 +125,15 @@ export function AuroraBackground() {
 
       animId = requestAnimationFrame(draw)
     }
+    window.addEventListener('resize', onResize)
+    window.addEventListener('orientationchange', onResize)
+
     draw()
-    return () => { cancelAnimationFrame(animId); window.removeEventListener('resize', resize) }
+    return () => {
+      cancelAnimationFrame(animId)
+      window.removeEventListener('resize', onResize)
+      window.removeEventListener('orientationchange', onResize)
+    }
   }, [])
 
   return (
